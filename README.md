@@ -1,2 +1,2 @@
 # pizzapaikka
-ryhmä työ
+Projektityön aiheena on tehdä pizzerialle sivusto
