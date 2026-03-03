@@ -1,1 +1,37 @@
 
+
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8" />
+    <title>demo7</title>
+    <script type="text/javascript" language="javascript" src="main.js"></script>
+    <style>
+        #userName {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div id="userName"></div>
+
+    <form id="rekisterointi_lomake">
+        <input id="nimi" type="text" placeholder="Syötä nimesi" value="" />
+        <input id="salasana" type="password" placeholder="Syötä salasanasi" value="" />
+        <input id="rekisteroidy_nappi" type="button" value="Rekisteröidy" onClick="rekisteroidy()" />
+    </form>
+    <form id="kirjautumis_lomake">
+        <input id="nimi2" type="text" placeholder="Syötä nimesi" value="" />
+        <input id="salasana2" type="password" placeholder="Syötä salasanasi" value="" />
+        <input id="kirjaudu_nappi" type="button" value="Kirjaudu" onClick="kirjaudu()" />
+    </form>
+    <form id="kirjauduulos_form">
+        <input id="kirjauduulos_btn" type="button" value="Kirjaudu ulos" onClick="kirjauduUlos()" />
+    </form>
+</body>
+</html>
