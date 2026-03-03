@@ -12,9 +12,33 @@
             right: 10px;
             font-weight: bold;
         }
+        body {background-color: #fdfaf0}
+        h1 {font-family:Georgia; color: #ffffff; background-color: #1a6e2a}
+        h2 {font-family:Georgia; color: #1a6e2a}
+        h3 {font-family:Georgia; color: #1a6e2a}
+        h4 {font-family:Georgia; color: #1a6e2a}
+        p {font-family:Georgia; color: #1a6e2a}
+        li {font-family: Georgia; color: #1a6e2a}
     </style>
 </head>
 
+
+</section>
+<div id="userName"></div>
+
+<form id="rekisterointi_lomake">
+    <input id="nimi" type="text" placeholder="Syötä nimesi" value="" />
+    <input id="salasana" type="password" placeholder="Syötä salasanasi" value="" />
+    <input id="rekisteroidy_nappi" type="button" value="Rekisteröidy" onClick="rekisteroidy()" />
+</form>
+<form id="kirjautumis_lomake">
+    <input id="nimi2" type="text" placeholder="Syötä nimesi" value="" />
+    <input id="salasana2" type="password" placeholder="Syötä salasanasi" value="" />
+    <input id="kirjaudu_nappi" type="button" value="Kirjaudu" onClick="kirjaudu()" />
+</form>
+<form id="kirjauduulos_form">
+    <input id="kirjauduulos_btn" type="button" value="Kirjaudu ulos" onClick="kirjauduUlos()" />
+</form>
 
 <body>
     <header>
@@ -88,28 +112,11 @@
     <section>
 
     <section id="yhteystiedot">
-        <h2>Yhteystiedot</h2>
+        <h3>Yhteystiedot</h3>
 
         <p>Osoite: Graniiditänav 8a</p>
         <p>Puhelin: 123 4567</p>
         <p>Sähköposti: info@pizda.com</p>
     </section>
-
-    </section>
-    <div id="userName"></div>
-
-    <form id="rekisterointi_lomake">
-        <input id="nimi" type="text" placeholder="Syötä nimesi" value="" />
-        <input id="salasana" type="password" placeholder="Syötä salasanasi" value="" />
-        <input id="rekisteroidy_nappi" type="button" value="Rekisteröidy" onClick="rekisteroidy()" />
-    </form>
-    <form id="kirjautumis_lomake">
-        <input id="nimi2" type="text" placeholder="Syötä nimesi" value="" />
-        <input id="salasana2" type="password" placeholder="Syötä salasanasi" value="" />
-        <input id="kirjaudu_nappi" type="button" value="Kirjaudu" onClick="kirjaudu()" />
-    </form>
-    <form id="kirjauduulos_form">
-        <input id="kirjauduulos_btn" type="button" value="Kirjaudu ulos" onClick="kirjauduUlos()" />
-    </form>
 </body>
 </html>
