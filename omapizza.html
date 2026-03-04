@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8" />
+    <title>demo7</title>
+    <script type="text/javascript" language="javascript" src="main.js"></script>
+    
+    <style> 
+        body{background-image: url("OmaPizzaBackground.jpg");}
+        h1{text-align: center;}
+        .OmaPizza {
+            background-color:rgb(238, 227, 214);
+            width: 40%;
+            padding: 20px;
+            text-align: center;
+            margin-left: 30%;
+            font-family: 'Lucida Sans';
+
+
+
+
+        }
+        
+        .Pohja {
+            width: 200;
+            height: 200;
+            border-width: 2px;
+            border-color: black;
+            
+        }
+
+        #omaPizzaTitle {
+            font-size: 80px;
+
+        }
+
+    </style>
+
+</head>
+
+<body>  
+    <div class="OmaPizza">
+        <header>    
+            <h1 id="omaPizzaTitle">Fantasia Pizza</h1>
+            <p id="omaPizzaKuvaus">Kokeile, miksaa, hulluttele ja löydä pizzan maistuvin makumaailma juuri sinulle!</p>
+        </header>
+        <section>
+            <h3>KOKO</h3>
+            <input type="radio" id="medium" name="KOKO" value="medium">
+            <label for="medium">Medium</label> 
+            <input type="radio" id="large" name="KOKO" value="large">
+            <label for="large">Large</label>
+        </section>
+        <section>   
+            <h3>POHJA</h3>
+            <select class="Pohja">
+                <option>normaali pizzapohja</option>
+                <option>gluteeniton pizzapohja +2€</option>
+            </select>
+            <select class="Pohja">
+                <option>tomaattikastikke</option>
+                <option>Chilimajoneesi</option>
+                <option>TUFF kastikke</option>
+                <option>Secret valkoinen kastikke</option>
+                <option>Cheesekastikke</option>
+                <option>BBQ kastikke</option>
+                <option>Ei pohjakastiketta</option>
+            </select>
+
+            
+            <h2>Lisää täytteitä</h2>
+            <input type="checkbox" id="kinkku" name="Lisukset" value="kinkku">
+            <label for="kinkku">kinkku</label>
+            <input type="checkbox" id="pepperonimakkara" name="Lisukset" value="pepperonimakkara">
+            <label for="pepperonimakkara">pepperonimakkara</label>
+            <input type="checkbox" id="cheesy cheese" name="Lisukset" value="cheesy cheese">
+            <label for="cheesy cheese">cheesy cheese</label>
+
+        
+        </section>
+    </div>    
+</body>
