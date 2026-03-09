@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <title>Tuff pizza</title>
     <script type="text/javascript" language="javascript" src="main.js"></script>
+    <link rel="stylesheet" href="main.css">
     <style>
         #userName {
             position: absolute;
@@ -12,59 +13,9 @@
             right: 10px;
             font-weight: bold;
         }
-        body {background-color: #f7eede}
-        h1 {font-family:Georgia; color: #ffffff; background-color: #1a6e2a}
-        h2 {font-family:Georgia; color: #1a6e2a}
-        h3 {font-family:Georgia; color: #1a6e2a}
-        h4 {font-family:Georgia; color: #67a84d}
-        p {font-family:Georgia; color: #1a6e2a}
-        li {font-family: Georgia; color: #1a6e2a}
-        a:link{
-            color: rgb(208, 231, 208);
-        }
-        a:hover{
-            color: yellowgreen
-        }
-        a:visited{
-            color: #d3eec1 
-        }
-        header{
-            background-color:#1a6e2a;
-            padding: 20px;
-            text-align: center;
-        }  
-        nav ul{
-            float: center;
-            text-align: center;
-            padding: 5px;
-            background-color: #1a6e2a;
-        }  
-        img{
-            float: left;
-            padding: 10px;
-            height: 180px;
-            width: 180px;
-        }
-        .logo {
-         width: 100px;
-         position: absolute;
-         right: 140px;
-         top: 20px;
-        }
-        title{
-            display: flex;
-            display: inline-block;
-            position: relative;
-        }
-        ul#bar li{
-            display: inline;
-            padding: 10px;
-        }
     </style>
 </head>
-
 </section>
-
 <body>
     <header>
         <div class ="logo">
@@ -80,7 +31,6 @@
         </ul>
     </nav>
     <div id="userName"></div>
-
     <form id="rekisterointi_lomake">
         <input id="nimi" type="text" placeholder="Syötä nimesi" value="" />
         <input id="salasana" type="password" placeholder="Syötä salasanasi" value="" />
@@ -95,21 +45,20 @@
         <input id="kirjauduulos_btn" type="button" value="Kirjaudu ulos" onClick="kirjauduUlos()" />
     </form>
     </header>
-
-    
-
     <section id="etusivu">
         <br>
         <h2>Autenttinen Israelilainen pizza</h2>
         <p>Tuoreet raaka-aineet suoraan Tel Avivista.</p>
-    </section>
-    <section id="meistä">
         <h2>Meistä</h2>
         <p>Tuff pizzeria on ainut autenttinen Israelilainen pizzeria koko Suomessa.</p>
     </section>
-    
-    <footer>
-        <p><u>Osoite: Graniiditänav 8a| Puhelin: 123 4567 | Sähköposti: info@tuffpizda.com</u></p>
-    </footer>
+    <section id="yhteys">
+        <ul>
+            <h3>Yhteystiedot:</h3>
+            <li><b>Osoite:</b> Graniiditänav 8a</li>
+            <li><b>Puhelin:</b> 123 4567</li>
+            <li><b>Sähköposti:</b> info@tuffpizda.com</li>
+        </ul>
+    </section>
 </body>
 </html>
