@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fi">
 <head>
+    <title>Tuff menu</title>
 <style>
     ul{
          list-style-type: none;
@@ -32,23 +33,27 @@
             color: yellowgreen
         }
         a:visited{
-            color: #c1eec1 
+            color: #d3eec1 
         }
         header{
             background-color:#1a6e2a;
-            padding: 20px;
+            padding: 30px;
             text-align: center;
         }  
         .logo {
-         width: 100px;
-         position: absolute;
-         right: 140px;
-         top: 20px;
+            width: 100px;
+            position: absolute;
+            right: 140px;
+            top: 20px;
         }
         title{
             display: flex;
             display: inline-block;
             position: relative;
+        }
+        ul#bar li{
+            display: inline;
+            padding: 10px;
         }
 </style>
 </head>
@@ -58,21 +63,20 @@
             <a href="#logo"><img src="Paras (3).png"></a>
         </div>
         <h1 style="text-align:center">Tuff pizza</h1>
+        <h4>Tuff Menu</h4>
         <nav>
-            <ul>
-                <li><a href='#Etusivu'>Etusivu</a></li>
-                <li><a href='#Meistä'>Meistä</a></li>
+            <ul id="bar">
+                <li><a href='index.html'>Etusivu</a></li>
                 <li><a href='menu.html'>Menu</a></li>
                 <li><a href="omapizza.html">Luo oma pizza</a></li>
-                <li><a href='#Yhteystiedot'>Yhteystiedot</a></li>
             </ul>
         </nav>
     </header>
-</section id="menu">
-<h2>Tuff menu</h2>
+<section id="menu">
+<h2>Tuff menu:</h2>
 
 <h2><u>Pizzat</u></h2>
-<ul>
+<ul id="bar">
     <li>
         <br>
         <img src="pepperoni.jpg">
@@ -152,11 +156,16 @@
 <ul>
     <li><b>Vesi</b> - 1.50€</li>
     <br>
+    <li><b>Vichy</b> - 2.00€</li>
+    <br>
     <li><b>Pepsi Max</b> - 2.50€</li>
     <br>
     <li><b>Coca-cola</b> - 2.50€</li>
+    <br>
+    <li><b>Fanta</b> - 2.50€</li>
+    <br>
+    <li><b>Megaforce Solar Citrus</b> - 1.50€</li>
 </ul>
-<section>
-
+</section>
 </body>
 </html>
