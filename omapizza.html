@@ -2,11 +2,11 @@
 <html lang="fi">
 <head>
     <meta charset="UTF-8" />
-    <title>demo7</title>
+    <title>Fantasia</title>
     <script type="text/javascript" language="javascript" src="main.js"></script>
     
     <style> 
-        body{background-image: url("OmaPizzaBackground.jpg");}
+        body{background-image: url("omapizzabg.jpg");}
         h1{text-align: center;}
         .OmaPizza {
             background-color:rgb(238, 227, 214);
@@ -15,10 +15,6 @@
             text-align: center;
             margin-left: 30%;
             font-family: 'Lucida Sans';
-
-
-
-
         }
         
         .Pohja {
@@ -26,18 +22,67 @@
             height: 200;
             border-width: 2px;
             border-color: black;
-            
         }
 
         #omaPizzaTitle {
             font-size: 80px;
-
         }
 
+        #ostoskorinappula {
+            text-align: center;
+            bottom: auto;
+            margin-top: 15px;
+        }
+
+        #ostoskorinappula2 {
+            text-align: center;
+            bottom: auto;
+            margin-bottom: 15px;
+        }
+
+        #ostoskorinakyma {
+            text-align: center;
+            border-radius: 15px;
+            border-color: black;
+            border-style: solid;
+            background-color: antiquewhite;
+            margin-right: auto;
+            margin-top: 15px;
+        }
+
+        #ostoskori-sisalto {
+            text-align: left;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        #ostok {
+            font-style: italic;
+            font-weight: bolder;
+        }
+
+        #tyhjennin {
+            margin-bottom: 15px;
+        }
+
+        #valmiitvalikko {
+            text-align: center;
+            border-radius: 15px;
+            border-color: black;
+            border-style: solid;
+            background-color: antiquewhite;
+            margin-right: auto;
+            margin-top: 15px;
+        }
+
+        #VALMIITP {
+            margin-bottom: 15px;
+        }
     </style>
-
 </head>
-
 <body>  
     <div class="OmaPizza">
         <header>    
@@ -48,35 +93,62 @@
             <h3>KOKO</h3>
             <input type="radio" id="medium" name="KOKO" value="medium">
             <label for="medium">Medium</label> 
-            <input type="radio" id="large" name="KOKO" value="large">
+            <input type="radio" id="large" name="KOKO" value="large" checked>
             <label for="large">Large</label>
         </section>
         <section>   
             <h3>POHJA</h3>
-            <select class="Pohja">
+            <select class="Pohja" id="POHJA">
                 <option>normaali pizzapohja</option>
                 <option>gluteeniton pizzapohja +2€</option>
             </select>
-            <select class="Pohja">
-                <option>tomaattikastikke</option>
+            <select class="Pohja" id="KASTIKE">
+                <option>tomaattikastike</option>
                 <option>Chilimajoneesi</option>
-                <option>TUFF kastikke</option>
-                <option>Secret valkoinen kastikke</option>
-                <option>Cheesekastikke</option>
-                <option>BBQ kastikke</option>
+                <option>TUFF kastike</option>
+                <option>Secret valkoinen kastike</option>
+                <option>Cheesekastike</option>
+                <option>BBQ kastike</option>
                 <option>Ei pohjakastiketta</option>
             </select>
-
             
             <h2>Lisää täytteitä</h2>
-            <input type="checkbox" id="kinkku" name="Lisukset" value="kinkku">
-            <label for="kinkku">kinkku</label>
-            <input type="checkbox" id="pepperonimakkara" name="Lisukset" value="pepperonimakkara">
-            <label for="pepperonimakkara">pepperonimakkara</label>
-            <input type="checkbox" id="cheesy cheese" name="Lisukset" value="cheesy cheese">
-            <label for="cheesy cheese">cheesy cheese</label>
+            <div id="LISUKKEET">
+                <input type="checkbox" id="kinkku" name="Lisukkeet" value="kinkku">
+                <label for="kinkku">kinkku</label>
+                <input type="checkbox" id="pepperoni" name="Lisukkeet" value="pepperonimakkara">
+                <label for="pepperoni">pepperonimakkara</label>
+                <input type="checkbox" id="cheese" name="Lisukkeet" value="cheesy cheese">
+                <label for="cheese">cheesy cheese</label>
+            </div>
 
-        
+            <section>
+                <input type="button" id="ostoskorinappula" name="Lisää ostoskoriin" value="Lisää ostoskoriin" onclick="ostoskori()">
+            </section>
+
+            <section id="valmiitvalikko">
+                <h2>Valmiit pizzat</h2>
+                <div id="VALMIITP">
+                    <select class="Valmiit" id="valmiitpizzat">
+                        <option id="pepperonipizza">Pepperoni pizza</option>
+                        <option id="kebabpizza">Kebab pizza</option>
+                        <option id="Mozzarellapizza">Mozzarella pizza</option>
+                        <option id="Kanapizza">Kana pizza</option>
+                        <option id="Jauhelihapizza">Jauheliha pizza</option>
+                        <option id="Tuffpizza">Tuff pizza</option>
+                    </select>
+                </div>
+                <section>
+                    <input type="button" id="ostoskorinappula2" name="Lisää ostoskoriin" value="Lisää ostoskoriin" onclick="valmiskori()">
+                </section>
+            </section>
+
+        </section>
+        <section id="ostoskorinakyma">
+            <h1 id="ostok">🛒 Ostoskori 🛒</h1>
+            <div id="ostoskori-sisalto"></div>
+            <input type="button" id="tyhjennin" name="tyhjenna ostoskori" value="Panna tyhjentääksesi ostoskori" onclick="tyhjenna()">
         </section>
     </div>    
 </body>
+</html>

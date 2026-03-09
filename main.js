@@ -49,3 +49,95 @@ function kirjauduUlos(){
     localStorage.setItem("kirjautunut", "ei");
     onkoRekisteroitunut();
 }
+
+function paivitaOstoskori(cart) {
+    let html = "<h2>Ostoskori</h2>";
+    cart.forEach((pizza, i) => {
+        html += `<h3>${pizza.nimi ? pizza.nimi : "Oma Pizza"} ${i + 1}</h3><ul>`;
+        html += `<li>Koko: ${pizza.koko}</li>`;
+        html += `<li>Pohja: ${pizza.pohja}</li>`;
+        html += `<li>Kastike: ${pizza.kastike}</li>`;
+        if (pizza.kinkku)    html += "<li>Kinkku</li>";
+        if (pizza.pepperoni) html += "<li>Pepperoni</li>";
+        if (pizza.juusto)    html += "<li>Juusto</li>";
+        html += "</ul>";
+    });
+    document.getElementById("ostoskori-sisalto").innerHTML = html;
+}
+
+function ostoskori() {
+    const loggedIn = localStorage.getItem("kirjautunut") === "kylla";
+    const registered = localStorage.getItem("rekisteroitunut") === "kylla";
+
+    if (!loggedIn) {
+        alert(!registered ? "Rekisteröidy ja kirjaudu jatkaaksesi" : "Kirjaudu sisään jatkaaksesi");
+        return;
+    }
+
+    const sizeEl = document.querySelector('input[name="KOKO"]:checked');
+    const size = sizeEl ? sizeEl.value : "ei valittu";
+
+    const bottom = document.getElementById("POHJA").value;
+    const sauce = document.getElementById("KASTIKE").value;
+    const ham = document.getElementById("kinkku");
+    const pepperoni = document.getElementById("pepperoni");
+    const cheese = document.getElementById("cheese");
+
+    const cart = JSON.parse(localStorage.getItem("ostoskori") || "[]");
+
+    cart.push({
+        koko: size,
+        pohja: bottom,
+        kastike: sauce,
+        kinkku: ham.checked,
+        pepperoni: pepperoni.checked,
+        juusto: cheese.checked
+    });
+
+    localStorage.setItem("ostoskori", JSON.stringify(cart));
+    paivitaOstoskori(cart);
+}
+
+function tyhjenna() {
+    localStorage.removeItem("ostoskori");
+    location.reload();
+}
+
+function valmiskori() {
+    const loggedIn = localStorage.getItem("kirjautunut") === "kylla";
+    const registered = localStorage.getItem("rekisteroitunut") === "kylla";
+
+    if (!loggedIn) {
+        alert(!registered ? "Rekisteröidy ja kirjaudu jatkaaksesi" : "Kirjaudu sisään jatkaaksesi");
+        return;
+    }
+
+    const selected = document.getElementById("valmiitpizzat").value;
+
+    const pizzaReseptit = {
+        "Pepperoni pizza":  { pohja: "normaali pizzapohja", kastike: "tomaattikastike",         kinkku: false, pepperoni: true,  juusto: true  },
+        "Kebab pizza":      { pohja: "normaali pizzapohja", kastike: "Chilimajoneesi",           kinkku: false, pepperoni: false, juusto: true  },
+        "Mozzarella pizza": { pohja: "normaali pizzapohja", kastike: "Secret valkoinen kastike", kinkku: false, pepperoni: false, juusto: true  },
+        "Kana pizza":       { pohja: "normaali pizzapohja", kastike: "Cheesekastike",            kinkku: false, pepperoni: false, juusto: true  },
+        "Jauheliha pizza":  { pohja: "normaali pizzapohja", kastike: "BBQ kastike",              kinkku: false, pepperoni: false, juusto: false },
+        "Tuff pizza":       { pohja: "normaali pizzapohja", kastike: "TUFF kastike",             kinkku: true,  pepperoni: true,  juusto: true  },
+    };
+
+    const resepti = pizzaReseptit[selected];
+    if (!resepti) return;
+
+    const cart = JSON.parse(localStorage.getItem("ostoskori") || "[]");
+
+    cart.push({
+        nimi: selected,
+        koko: "normaali",
+        pohja: resepti.pohja,
+        kastike: resepti.kastike,
+        kinkku: resepti.kinkku,
+        pepperoni: resepti.pepperoni,
+        juusto: resepti.juusto
+    });
+
+    localStorage.setItem("ostoskori", JSON.stringify(cart));
+    paivitaOstoskori(cart);
+}

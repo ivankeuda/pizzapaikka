@@ -30,35 +30,48 @@
         }
         ul{
             list-style-type: none;
+            margin: 10px;
         }
         header{
             background-color:#1a6e2a;
             padding: 20px;
             text-align: center;
-        }    
+        }  
+        nav ul{
+            float: center;
+            text-align: center;
+            padding: 5px;
+            background-color: #1a6e2a;
+        }  
+        img{
+            float: left;
+            padding: 10px;
+            height: 180px;
+            width: 180px;
+        }
+        .logo {
+         width: 100px;
+         position: absolute;
+         right: 140px;
+         top: 20px;
+        }
+        title{
+            display: flex;
+            display: inline-block;
+            position: relative;
+        }
     </style>
 </head>
 
 
 </section>
-<div id="userName"></div>
 
-<form id="rekisterointi_lomake">
-    <input id="nimi" type="text" placeholder="Syötä nimesi" value="" />
-    <input id="salasana" type="password" placeholder="Syötä salasanasi" value="" />
-    <input id="rekisteroidy_nappi" type="button" value="Rekisteröidy" onClick="rekisteroidy()" />
-</form>
-<form id="kirjautumis_lomake">
-    <input id="nimi2" type="text" placeholder="Syötä nimesi" value="" />
-    <input id="salasana2" type="password" placeholder="Syötä salasanasi" value="" />
-    <input id="kirjaudu_nappi" type="button" value="Kirjaudu" onClick="kirjaudu()" />
-</form>
-<form id="kirjauduulos_form">
-    <input id="kirjauduulos_btn" type="button" value="Kirjaudu ulos" onClick="kirjauduUlos()" />
-</form>
 
 <body>
     <header>
+        <div class ="logo">
+            <a href="#logo"><img src="Paras (3).png"></a>
+        </div>
         <h1 style="text-align:center">Tuff pizza</h1>
         <h4>Tervetuloa Tuff pizzeriaan</h4>
     <nav>
@@ -70,9 +83,27 @@
             <li><a href='#Yhteystiedot'>Yhteystiedot</a></li>
         </ul>
     </nav>
+    <div id="userName"></div>
+
+    <form id="rekisterointi_lomake">
+        <input id="nimi" type="text" placeholder="Syötä nimesi" value="" />
+        <input id="salasana" type="password" placeholder="Syötä salasanasi" value="" />
+        <input id="rekisteroidy_nappi" type="button" value="Rekisteröidy" onClick="rekisteroidy()" />
+    </form>
+    <form id="kirjautumis_lomake">
+        <input id="nimi2" type="text" placeholder="Syötä nimesi" value="" />
+        <input id="salasana2" type="password" placeholder="Syötä salasanasi" value="" />
+        <input id="kirjaudu_nappi" type="button" value="Kirjaudu" onClick="kirjaudu()" />
+    </form>
+    <form id="kirjauduulos_form">
+        <input id="kirjauduulos_btn" type="button" value="Kirjaudu ulos" onClick="kirjauduUlos()" />
+    </form>
     </header>
 
+    
+
     <section id="etusivu">
+        <br>
         <h2>Autenttinen Israelilainen pizza</h2>
         <p>Tuoreet raaka-aineet suoraan Tel Avivista.</p>
     </section>
@@ -85,47 +116,87 @@
         <h3><u>Pizzat</u></h3>
         <ul>
             <li>
+                <br>
+                <img src="pepperoni.jpg">
                 <h4>Pepperoni pizza</h4>
                 <p><i>juusto, pepperoni</i></p>
                 <p><strong>12.50€</strong></p>
             </li>
+            <br>
+            <br>
+            <br>
+            <br>
             <li>
+                <br>
+                <img src="kebab.jpg">
                 <h4>Kebab pizza</h4>
                 <p><i>kebabliha, kebabkastike</i></p>
                 <p><strong>14.00€</strong></p>
             </li>
+            <br>
+            <br>
+            <br>
+            <br>
             <li>
+                <br>
+                <img src="mozzarella.jpg">
                 <h4>Mozzarella pizza</h4>
                 <p><i>mozzarella, tomaatti, basilika</i></p>
                 <p><strong>13.50€</strong></p>
             </li>
+            <br>
+            <br>
+            <br>
+            <br>
             <li>
+                <br>
+                <img src="kana.jpg">
                 <h4>Kana pizza</h4>
                 <p><i>juusto, kana</i></p>
                 <p><strong>13.00€</strong></p>
             </li>
+            <br>
+            <br>
+            <br>
+            <br>
             <li>
+                <br>
+                <img src="liha.jpg">
                 <h4>Jauheliha pizza</h4>
                 <p><i>juusto, jauheliha</i></p>
                 <p><strong>12.50€</strong></p>
             </li>
+            <br>
+            <br>
+            <br>
+            <br>
             <li>
+                <br>
+                <img src="futa.jpg">
                 <h4>Tuff special</h4>
                 <p><i>mozzarella, futa pawjob kastike</i></p>
-                <p><strong>hinta</strong></p>
+                <p><strong>15.00€</strong></p>
             </li>
+            <br>
+            <br>
+            <br>
+            <br>
         </ul>
         <h3><u>Lisukkeet</u></h3>
         <ul>
             <li><b>Lisuke 1</b> - hinta</li>
+            <br>
             <li><b>Lisuke 2</b> - hinta</li>
+            <br>
             <li><b>Lisuke 3</b> - hinta</li>
         </ul>
         <h3><u>Juomat</u></h3>
         <ul>
             <li><b>Vesi</b> - 1.50€</li>
+            <br>
             <li><b>Pepsi Max</b> - 2.50€</li>
-            <li><b>Viru valge</b> - 5.50€</li>
+            <br>
+            <li><b>Coca-cola</b> - 2.50€</li>
         </ul>
     <section>
 
