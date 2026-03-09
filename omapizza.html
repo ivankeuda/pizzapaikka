@@ -3,17 +3,70 @@
 <head>
     <meta charset="UTF-8" />
     <title>Fantasia</title>
-    <script type="text/javascript" language="javascript" src="main.js"></script>
+    
     
     <style> 
-        body{background-image: url("omapizzabg.jpg");}
-        h1{text-align: center;}
-        .OmaPizza {
-            background-color:rgb(238, 227, 214);
-            width: 40%;
+        ul{
+                list-style-type: none;
+                margin: 10px;
+        }
+        img{
+            float: left;
+            padding: 10px;
+            height: 180px;
+            width: 180px;
+        }
+        .logo {
+            width: 100px;
+            position: absolute;
+            right: 140px;
+            top: 20px;
+        }
+
+        h1 {font-family:Georgia; color: #ffffff}
+        h2 {font-family:Georgia; color: #1a6e2a}
+        h3 {font-family:Georgia; color: #1a6e2a}
+        h4 {font-family:Georgia; color: #67a84d}
+        p {font-family:Georgia; color: #1a6e2a}
+        li {font-family: Georgia; color: #1a6e2a}
+        a:link{
+            color: rgb(208, 231, 208);
+        }
+        a:hover{
+            color: yellowgreen
+        }
+        a:visited{
+            color: #c1eec1 
+        }
+        header{
+            background-color:#1a6e2a;
             padding: 20px;
             text-align: center;
+        }  
+        .logo {
+            width: 100px;
+            position: absolute;
+            right: 140px;
+            top: 20px;
+        }
+        title{
+            display: flex;
+            display: inline-block;
+            position: relative;
+        }
+        
+        body{background-image: url("omapizzabg.jpg");}
+        h1{text-align: center;}
+        
+        .OmaPizza {
+            background-color:rgb(238, 227, 214);
+            
+            width: 40%;
+            padding: 50px;
+            text-align: center;
             margin-left: 30%;
+            
+            
             font-family: 'Lucida Sans';
 
 
@@ -39,11 +92,29 @@
 </head>
 
 <body>  
+    <header>
+        <div class ="logo">
+            <a href="#logo"><img src="Paras (3).png"></a>
+        </div>
+        <div>
+        <h1 style="text-align:center">Tuff pizza</h1>
+        <nav>
+            <ul>
+                <li><a href='index.html'>Etusivu</a></li>
+                <li><a href='#Meistä'>Meistä</a></li>
+                <li><a href='menu.html'>Menu</a></li>
+                <li><a href="omapizza.html">Luo oma pizza</a></li>
+                <li><a href='#Yhteystiedot'>Yhteystiedot</a></li>
+            </ul>
+        </nav>
+        </div>
+    </header>
+
     <div class="OmaPizza">
-        <header>    
-            <h1 id="omaPizzaTitle">Fantasia Pizza</h1>
-            <p id="omaPizzaKuvaus">Kokeile, miksaa, hulluttele ja löydä pizzan maistuvin makumaailma juuri sinulle!</p>
-        </header>
+          
+        <h1 id="omaPizzaTitle" style="color: #1a6e2a;">Fantasia Pizza</h1>
+        <p id="omaPizzaKuvaus">Kokeile, miksaa, hulluttele ja löydä pizzan maistuvin makumaailma juuri sinulle!</p>
+        
         <section>
             <h3>KOKO</h3>
             <input type="radio" id="medium" name="KOKO" value="medium">
