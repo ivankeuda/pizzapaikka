@@ -1,0 +1,72 @@
+ul{
+    list-style-type: none;
+   margin: 10px;
+}
+img{
+    float: left;
+    padding: 10px;
+   height: 180px;
+   width: 180px;
+ }
+.logo {
+    width: 100px;
+    position: absolute;
+    right: 140px;
+    top: 20px;
+}
+body {background-color: #f7eede}
+h1 {font-family:Georgia; color: #ffffff; background-color: #1a6e2a}
+h2 {font-family:Georgia; color: #1a6e2a}
+h3 {font-family:Georgia; color: #1a6e2a}
+h4 {font-family:Georgia; color: #67a84d}
+p {font-family:Georgia; color: #1a6e2a}
+li {font-family: Georgia; color: #1a6e2a}
+a:link{
+    color: rgb(208, 231, 208);
+}
+a:hover{
+    color: yellowgreen
+}
+a:visited{
+    color: #c1eec1 
+}
+header{
+    background-color:#1a6e2a;
+    padding: 30px;
+    text-align: center;
+}  
+nav ul{
+    float: center;
+    text-align: center;
+    padding: 5px;
+    background-color: #1a6e2a;
+}  
+ul{
+    list-style-type: none
+}
+img{
+    float: left;
+    padding: 10px;
+    height: 180px;
+    width: 180px;
+}
+.logo {
+ width: 100px;
+ position: absolute;
+ right: 140px;
+ top: 20px;
+}
+title{
+    display: flex;
+    display: inline-block;
+    position: relative;
+}
+ul#bar li{
+    display: inline;
+    padding: 10px;
+}
+#yhteys{
+    position: absolute;
+    bottom: 0;
+    padding: 25px;
+}
