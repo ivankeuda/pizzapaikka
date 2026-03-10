@@ -77,24 +77,156 @@
 
 
         }
-        
-        .Pohja {
-            width: 200;
-            height: 200;
-            border-width: 2px;
-            border-color: black;
-            
+    
+        h2 {
+            text-align: center;
         }
-
+    
+        .OmaPizza {
+            background-color: rgb(238, 227, 214);
+            width: 40%;
+            padding: 20px 30px;
+            text-align: center;
+            margin: 20px auto;
+            font-family: 'Lucida Sans', sans-serif;
+            border-radius: 10px;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.18);
+            border-top: 4px solid #b5451b;
+        }
+    
+        .Pohja {
+            border: 2px solid black;
+            border-radius: 6px;
+        }
+    
         #omaPizzaTitle {
             font-size: 80px;
-
+            color: #b5451b;
+            text-shadow: 1px 2px 6px rgba(0,0,0,0.13);
+        }
+    
+        #ostoskorinappula {
+            text-align: center;
+            margin-top: 15px;
+        }
+    
+        #ostoskorinappula2 {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+    
+        #ostoskorinakyma {
+            text-align: center;
+            border-radius: 12px;
+            border: 1.5px solid #c8a97a;
+            background-color: #fdf3e3;
+            margin-top: 15px;
+            padding: 10px;
+        }
+    
+        #ostoskori-sisalto {
+            text-align: left;
+            font-family: 'Times New Roman', Times, serif;
+        }
+    
+        #ostok {
+            font-style: italic;
+            font-weight: bolder;
+            color: #b5451b;
+        }
+    
+        #tyhjennin {
+            margin: 15px auto;
+            display: block;
+            padding: 6px 18px;
+            border-radius: 6px;
+            border: 1.5px solid #b5451b;
+            background: white;
+            color: #b5451b;
+            cursor: pointer;
+            font-family: 'Lucida Sans', sans-serif;
+            transition: background 0.18s, color 0.18s;
+        }
+    
+        #tyhjennin:hover {
+            background: #b5451b;
+            color: white;
+        }
+    
+        #valmiitvalikko {
+            text-align: center;
+            border-radius: 12px;
+            border: 1.5px solid #c8a97a;
+            background-color: #fdf3e3;
+            margin-top: 15px;
+            padding: 10px;
+        }
+    
+        #VALMIITP {
+            margin-bottom: 15px;
+        }
+    
+        #tilaanappula {
+            text-align: center;
+            border-radius: 10px;
+            border: 1.5px solid #b5451b;
+            background-color: #b5451b;
+            color: white;
+            margin: 15px auto;
+            padding: 8px 22px;
+            display: inline-block;
+            cursor: pointer;
+            font-family: 'Lucida Sans', sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            transition: background 0.18s;
+        }
+    
+        #tilaanappula:hover {
+            background-color: #8f3415;
+            border-color: #8f3415;
         }
 
+        #takaisinnappula {
+            display: inline-block;
+            margin-top: 10px;
+            margin-bottom: 4px;
+            padding: 6px 18px;
+            border-radius: 6px;
+            border: 1.5px solid #b5451b;
+            background: white;
+            color: #b5451b;
+            cursor: pointer;
+            font-family: 'Lucida Sans', sans-serif;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: background 0.18s, color 0.18s;
+        }
+
+        #takaisinnappula:hover {
+            background: #b5451b;
+            color: white;
+        }
+
+        #aika {
+            margin: 15px auto;
+            display: block;
+            padding: 6px 18px;
+            border-radius: 6px;
+            border: 1.5px solid #b5451b;
+            background: white;
+            color: #b5451b;
+            cursor: pointer;
+            font-family: 'Lucida Sans', sans-serif;
+            transition: background 0.18s, color 0.18s;
+        }
+
+        #aika:hover {
+            background: #b5451b;
+            color: white;
+        }
     </style>
-
 </head>
-
 <body>  
     <header>
         <div class ="logo">
@@ -120,35 +252,67 @@
             <h3>KOKO</h3>
             <input type="radio" id="medium" name="KOKO" value="medium">
             <label for="medium">Medium</label> 
-            <input type="radio" id="large" name="KOKO" value="large">
+            <input type="radio" id="large" name="KOKO" value="large" checked>
             <label for="large">Large</label>
         </section>
         <section>   
             <h3>POHJA</h3>
-            <select class="Pohja">
+            <select class="Pohja" id="POHJA">
                 <option>normaali pizzapohja</option>
                 <option>gluteeniton pizzapohja +2€</option>
             </select>
-            <select class="Pohja">
-                <option>tomaattikastikke</option>
+            <select class="Pohja" id="KASTIKE">
+                <option>tomaattikastike</option>
                 <option>Chilimajoneesi</option>
-                <option>TUFF kastikke</option>
-                <option>Secret valkoinen kastikke</option>
-                <option>Cheesekastikke</option>
-                <option>BBQ kastikke</option>
+                <option>TUFF kastike</option>
+                <option>Secret valkoinen kastike</option>
+                <option>Cheesekastike</option>
+                <option>BBQ kastike</option>
                 <option>Ei pohjakastiketta</option>
             </select>
-
             
             <h2>Lisää täytteitä</h2>
-            <input type="checkbox" id="kinkku" name="Lisukset" value="kinkku">
-            <label for="kinkku">kinkku</label>
-            <input type="checkbox" id="pepperonimakkara" name="Lisukset" value="pepperonimakkara">
-            <label for="pepperonimakkara">pepperonimakkara</label>
-            <input type="checkbox" id="cheesy cheese" name="Lisukset" value="cheesy cheese">
-            <label for="cheesy cheese">cheesy cheese</label>
+            <div id="LISUKKEET">
+                <input type="checkbox" id="kinkku" name="Lisukkeet" value="kinkku">
+                <label for="kinkku">kinkku</label>
+                <input type="checkbox" id="pepperoni" name="Lisukkeet" value="pepperonimakkara">
+                <label for="pepperoni">pepperonimakkara</label>
+                <input type="checkbox" id="cheese" name="Lisukkeet" value="cheesy cheese">
+                <label for="cheese">cheesy cheese</label>
+            </div>
 
-        
+            <section>
+                <input type="button" id="ostoskorinappula" name="Lisää ostoskoriin" value="Lisää ostoskoriin" onclick="ostoskori()">
+            </section>
+
+            <section id="valmiitvalikko">
+                <h2>Valmiit pizzat</h2>
+                <div id="VALMIITP">
+                    <select class="Valmiit" id="valmiitpizzat">
+                        <option id="pepperonipizza">Pepperoni pizza</option>
+                        <option id="kebabpizza">Kebab pizza</option>
+                        <option id="Mozzarellapizza">Mozzarella pizza</option>
+                        <option id="Kanapizza">Kana pizza</option>
+                        <option id="Jauhelihapizza">Jauheliha pizza</option>
+                        <option id="Tuffpizza">Tuff pizza</option>
+                    </select>
+                </div>
+                <section>
+                    <input type="button" id="ostoskorinappula2" name="Lisää ostoskoriin" value="Lisää ostoskoriin" onclick="valmiskori()">
+                </section>
+            </section>
+
+        </section>
+        <section id="ostoskorinakyma">
+            <h1 id="ostok">🛒 Ostoskori 🛒</h1>
+            <div id="ostoskori-sisalto"></div>
+                <div><a id="tilaanappula" href="tilaus.html">Tilaa heti!</a></div>
+            <input type="button" id="tyhjennin" name="tyhjenna ostoskori" value="Paina tyhjentääksesi ostoskori" onclick="tyhjenna()">
+            <input type="button" id="aika" value="Arvioi valmistusaika" onclick="toimitusaika()">
+        </section>
+        <section>
+            <a href="index.html" id="takaisinnappula">← Takaisin</a>
         </section>
     </div>    
 </body>
+</html>
