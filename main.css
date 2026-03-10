@@ -101,3 +101,10 @@ title{
 #menu li{
     font-size: 17px;
 }
+#tähdet{
+    line-height: 28px;
+}
+#pala{
+    background-color: #f7eede;
+    color:#1a6e2a;
+}
