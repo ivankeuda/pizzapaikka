@@ -6,14 +6,15 @@
     <title>Tuff pizza</title>
     <script type="text/javascript" language="javascript" src="main.js"></script>
     <style>
-        #userName {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-weight: bold;
-        }
         body {background-color: #f3f1ed}
-        h1 {font-family:Georgia; color: #ffffff; background-color: #b5451b}
+        h1 {
+        font-size: 4rem;
+        color: transparent;
+        -webkit-text-stroke: 1px white;
+        text-shadow: -4px -4px  white;
+        font-weight: 600;
+        text-transform: uppercase;
+        }
         h2 {font-family:Georgia; color: #b5451b}
         h3 {font-family:Georgia; color: #b5451b}
         h4 {font-family:Georgia; color: #ffffff}
@@ -34,12 +35,12 @@
         }
         header{
             background-color:#b5451b;
-            padding: 20px;
+ 
             text-align: center;
+            border-radius: 15px;
+            height: 200px;
         }  
         nav ul{
-            float: center;
-            text-align: center;
             padding: 5px;
             background-color: #b5451b;
         }  
@@ -53,8 +54,9 @@
          width: 100px;
          position: absolute;
          right: 140px;
-         top: 20px;
+         top: 35px
         }
+
         title{
             display: flex;
             display: inline-block;
@@ -62,6 +64,57 @@
         }
         #navigaatio{
             color: white;
+        }
+
+        .topnav {
+            background-color: #333;
+            overflow: hidden;
+            height: 48px;
+            display: flex;
+            align-items: center;
+        }
+
+        .topnav a {
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+            background-color: #333;
+            border: none;
+        }
+
+        .topnav a {
+            cursor: pointer;
+        }
+
+        .topnav a:hover,
+        #kirjauduulos_btn:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .topnav a.active {
+            background-color: #04AA6D;
+            color: white;
+        }
+
+        .right {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+        }
+
+        #kirjauduulos_btn,
+        #userName {
+            float: right;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+            background-color: #333;
+            border: none;
         }
     </style>
 </head>
@@ -75,18 +128,21 @@
         <div class ="logo">
             <a href="#logo"><img src="Paras (3).png"></a>
         </div>
+        <div class="topnav">
+            <a class="active" href="#home">Etusivu</a>
+            <a href="#meista">Meistä</a>
+            <a href="omapizza.html">Tilaa nyt!</a>
+            <a href="#menu">Menu</a>
+            <form id="kirjauduulos_form">
+                <input id="kirjauduulos_btn" type="button" value="Kirjaudu ulos" onClick="kirjauduUlos()" />
+            </form>
+            <a id="userName"></a>
+        </div>
         <h1 style="text-align:center">Tuff pizza</h1>
         <h4>Tervetuloa Tuff pizzeriaan</h4>
     <nav>
-        <ul>
-            <li><a href='#Etusivu'  id="navigaatio">Etusivu</a></li>
-            <li><a href='#Meistä'  id="navigaatio">Meistä</a></li>
-            <li><a href='#menu'  id="navigaatio">Menu</a></li>
-            <li><a href="omapizza.html"  id="navigaatio">Tilaa nyt!</a></li>
-            <li><a href='#Yhteystiedot'  id="navigaatio">Yhteystiedot</a></li>
-        </ul>
     </nav>
-    <div id="userName"></div>
+
 
     <form id="rekisterointi_lomake">
         <input id="nimi" type="text" placeholder="Syötä nimesi" value="" />
@@ -97,9 +153,6 @@
         <input id="nimi2" type="text" placeholder="Syötä nimesi" value="" />
         <input id="salasana2" type="password" placeholder="Syötä salasanasi" value="" />
         <input id="kirjaudu_nappi" type="button" value="Kirjaudu" onClick="kirjaudu()" />
-    </form>
-    <form id="kirjauduulos_form">
-        <input id="kirjauduulos_btn" type="button" value="Kirjaudu ulos" onClick="kirjauduUlos()" />
     </form>
     </header>
 
