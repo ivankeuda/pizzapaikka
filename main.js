@@ -59,7 +59,6 @@ function onkoRekisteroitunut(){
     document.getElementById("kirjauduulos_form").style.display = kirjautunut ? "block" : "none";
     document.getElementById("authcontain").style.display = kirjautunut ? "none" : "block";
 
-
     const kayttajaNimiElementti = document.getElementById('userName');
     if (kirjautunut) {
         kayttajaNimiElementti.textContent = localStorage.getItem("nimi") || '';
@@ -160,7 +159,7 @@ function valmiskori() {
     if (!resepti) return;
 
     const ostoskoriLista = JSON.parse(localStorage.getItem("ostoskori") || "[]");
-
+    
     ostoskoriLista.push({
         nimi: valittuPizza,
         koko: "normaali",
