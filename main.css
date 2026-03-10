@@ -15,23 +15,23 @@ img{
     top: 20px;
 }
 body {background-color: #f7eede}
-h1 {font-family:Georgia; color: #ffffff; background-color: #1a6e2a}
-h2 {font-family:Georgia; color: #1a6e2a}
-h3 {font-family:Georgia; color: #1a6e2a}
-h4 {font-family:Georgia; color: #67a84d}
-p {font-family:Georgia; color: #1a6e2a}
-li {font-family: Georgia; color: #1a6e2a}
+h1 {font-family:Georgia; color: #e6bb48; background-color: peru}
+h2 {font-family:Georgia; color: #b5451b}
+h3 {font-family:Georgia; color: #b5451b}
+h4 {font-family:Georgia; color: #e6bb48}
+p {font-family:Georgia; color: #b5451b}
+li {font-family: Georgia; color: #b5451b}
 a:link{
-    color: rgb(208, 231, 208);
+    color: #fcba06;
 }
 a:hover{
-    color: yellowgreen
+    color: #b5451b
 }
 a:visited{
-    color: #c1eec1 
+    color: #d38117 
 }
 header{
-    background-color:#1a6e2a;
+    background-color:peru;
     padding: 30px;
     text-align: center;
 }  
@@ -39,7 +39,7 @@ nav ul{
     float: center;
     text-align: center;
     padding: 5px;
-    background-color: #1a6e2a;
+    background-color: peru;
 }  
 ul{
     list-style-type: none
@@ -67,7 +67,7 @@ title{
     overflow: hidden;
     display: inline;
     padding: 3px;
-    background-color: #329444;
+    background-color: #e6bb48;
 }
 #valikko li{
     float: center;
@@ -79,7 +79,7 @@ title{
     text-decoration: none;
 }
 #valikko li:hover{
-    background-color: #116320
+    background-color: #b5451b
 }
 #yhteys{
     position: absolute;
@@ -93,7 +93,7 @@ title{
     line-height: 1.2;
 }
 #suema{
-    font-family: Georgia; color: #1a6e2a; background-color: #f7eede;
+    font-family: Georgia; color: #b5451b; background-color: #f7eede;
 }
 #etusivu{
     padding: 15px;
@@ -103,23 +103,23 @@ title{
 }
 #tähdet{
     line-height: 28px;
-    color: #1a6e2a;
+    color: #b5451b;
 }
 #pala{
     background-color: #f7eede;
-    color:#1a6e2a;
+    color: #b5451b;
 }
 #kenttä{
     width:220px;
-    color: rgb(139, 187, 118);
+    color: #e6bb48;
 }
 #email{
     width:220px;
-    color: rgb(139, 187, 118);
+    color: #e6bb48;
 }
 #teksti{
-    color:#1a6e2a;
+    color:#b5451b;
 }
 #sähköposti{
-    color:#1a6e2a
+    color:#b5451b
 }
