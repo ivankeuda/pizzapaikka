@@ -20,7 +20,7 @@ h2 {font-family:Georgia; color: #1a6e2a}
 h3 {font-family:Georgia; color: #1a6e2a}
 h4 {font-family:Georgia; color: #67a84d}
 p {font-family:Georgia; color: #1a6e2a}
-li {font-family: Georgia; color: #1a6e2a;}
+li {font-family: Georgia; color: #1a6e2a}
 a:link{
     color: rgb(208, 231, 208);
 }
@@ -61,14 +61,30 @@ title{
     display: inline-block;
     position: relative;
 }
-ul#bar li{
+
+#bar li{
+    margin: 2px;
+    overflow: hidden;
     display: inline;
-    padding: 10px;
+    padding: 3px;
+    background-color: #329444;
+}
+#bar li{
+    float: center;
+}
+#bar li a{
+    display: inline-block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+#bar li:hover{
+    background-color: #116320
 }
 #yhteys{
     position: absolute;
     bottom: 0;
-    padding: 5px;
+    padding: 25px;
     height: 145px;
 }
 #menu{
