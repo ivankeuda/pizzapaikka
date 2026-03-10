@@ -103,8 +103,23 @@ title{
 }
 #tähdet{
     line-height: 28px;
+    color: #1a6e2a;
 }
 #pala{
     background-color: #f7eede;
     color:#1a6e2a;
+}
+#kenttä{
+    width:220px;
+    color: rgb(139, 187, 118);
+}
+#email{
+    width:220px;
+    color: rgb(139, 187, 118);
+}
+#teksti{
+    color:#1a6e2a;
+}
+#sähköposti{
+    color:#1a6e2a
 }
