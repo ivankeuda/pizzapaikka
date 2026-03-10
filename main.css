@@ -83,9 +83,11 @@ title{
 }
 #yhteys{
     position: absolute;
-    bottom: 0;
-    padding: 25px;
-    height: 145px;
+    bottom: 15px;
+    padding: 20px;
+    height: 140px;
+    width: 280px;
+    line-height: 30px;;
 }
 #menu{
     line-height: 1.2;
