@@ -62,23 +62,23 @@ title{
     position: relative;
 }
 
-#bar li{
+#valikko li{
     margin: 2px;
     overflow: hidden;
     display: inline;
     padding: 3px;
     background-color: #329444;
 }
-#bar li{
+#valikko li{
     float: center;
 }
-#bar li a{
+#valikko li a{
     display: inline-block;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
 }
-#bar li:hover{
+#valikko li:hover{
     background-color: #116320
 }
 #yhteys{
