@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fi">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Tilaus – Fantasia Pizza</title>
+        <script type="text/javascript" src="main.js"></script>  <!-- ✅ Add this -->
+        <style>
+        @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+
+        body {
+            background-image: url("omapizzabg.jpg");
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: 'Lucida Sans', sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            font-family: 'Satisfy', cursive;
+            font-size: 60px;
+            color: #b5451b;
+            text-shadow: 1px 2px 6px rgba(0,0,0,0.13);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 14px;
+        }
+
+        .TilausKortti {
+            background-color: rgb(238, 227, 214);
+            width: 40%;
+            padding: 20px 30px;
+            text-align: center;
+            margin: 20px auto;
+            font-family: 'Lucida Sans', sans-serif;
+            border-radius: 10px;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.18);
+            border-top: 4px solid #b5451b;
+        }
+
+        .lomake-rivi {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            margin-bottom: 12px;
+        }
+
+        .lomake-rivi label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #7a3a18;
+            margin-bottom: 4px;
+            letter-spacing: 0.03em;
+        }
+
+        .lomake-rivi input,
+        .lomake-rivi textarea {
+            padding: 8px 12px;
+            border: 1.5px solid #c8a97a;
+            border-radius: 6px;
+            background: white;
+            font-family: 'Lucida Sans', sans-serif;
+            font-size: 0.9rem;
+            color: #3a1a08;
+            transition: border-color 0.18s;
+        }
+
+        .lomake-rivi input:focus,
+        .lomake-rivi textarea:focus {
+            outline: none;
+            border-color: #b5451b;
+        }
+
+        .lomake-rivi textarea {
+            resize: vertical;
+            min-height: 70px;
+        }
+
+        #kuljetustausta {
+            padding: 8px 12px;
+            border: 1.5px solid #c8a97a;
+            border-radius: 6px;
+            background: white;
+            font-family: 'Lucida Sans', sans-serif;
+            font-size: 0.9rem;
+            color: #3a1a08;
+            transition: border-color 0.18s;
+        }
+
+        #lahetanappula {
+            border-radius: 10px;
+            border: 1.5px solid #b5451b;
+            background-color: #b5451b;
+            color: white;
+            margin: 10px auto 4px;
+            padding: 8px 22px;
+            display: inline-block;
+            cursor: pointer;
+            font-family: 'Lucida Sans', sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            transition: background 0.18s;
+        }
+
+        #lahetanappula:hover {
+            background-color: #8f3415;
+            border-color: #8f3415;
+        }
+
+        #takaisinnappula {
+            display: inline-block;
+            margin-top: 10px;
+            margin-bottom: 4px;
+            padding: 6px 18px;
+            border-radius: 6px;
+            border: 1.5px solid #b5451b;
+            background: white;
+            color: #b5451b;
+            cursor: pointer;
+            font-family: 'Lucida Sans', sans-serif;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: background 0.18s, color 0.18s;
+        }
+
+        #takaisinnappula:hover {
+            background: #b5451b;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="TilausKortti">
+
+        <h1>Fantasia Pizza</h1>
+        <h2>📋 Toimitusosoite</h2>
+
+        <div class="lomake-rivi">
+            <label for="etunimi">Etunimi</label>
+            <input type="text" id="etunimi" placeholder="Esim. Matti" />
+        </div>
+
+        <div class="lomake-rivi">
+            <label for="sukunimi">Sukunimi</label>
+            <input type="text" id="sukunimi" placeholder="Esim. Meikäläinen" />
+        </div>
+
+        <div class="lomake-rivi">
+            <label for="puhelinnumero">Puhelinnumero</label>
+            <input type="tel" id="puhelinnumero" placeholder="Esim. 040 123 4567" />
+        </div>
+
+        <div class="lomake-rivi">
+            <label for="postinumero">Postinumero</label>
+            <input type="text" id="postinumero" placeholder="Esim. 00100" maxlength="5" />
+        </div>
+
+        <div class="lomake-rivi">
+            <label for="kaupunki">Kaupunki</label>
+            <input type="text" id="kaupunki" placeholder="Esim. Helsinki" />
+        </div>
+
+        <div class="lomake-rivi">
+            <label for="kuljetustapa">Kuljetus tapa</label>
+            <select id="kuljetustausta" onchange="piilotavalinta()">
+                <option value="nouto">Nouto</option>
+                <option value="kuljetus">Kuljetus</option>
+            </select>
+        </div>
+        
+        <div class="lomake-rivi" id="osoiterivi" style="display:none;">
+            <label for="osoite">Katuosoite</label>
+            <input type="text" id="osoite" placeholder="Esim. Esimerkkikatu 12 A 3" />
+        </div>
+
+        <div class="lomake-rivi">
+            <label for="lisatiedot">Lisätiedot kuljettajalle</label>
+            <textarea id="lisatiedot" placeholder="Esim. 2. kerros, soita ovikelloa..."></textarea>
+        </div>
+
+        <input type="button" id="lahetanappula" value="✅ Lähetä tilaus" onclick="tilausilmotus()"/>
+        <br />
+        <a href="omapizza.html" id="takaisinnappula">← Takaisin</a>
+    </div>
+
+</body>
+</html>
