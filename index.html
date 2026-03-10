@@ -23,6 +23,16 @@
         <div class ="logo">
             <a href="#logo"><img src="Paras (3).png"></a>
         </div>
+        <div class="topnav">
+            <a class="active" href="#home">Etusivu</a>
+            <a href="#meista">Meistä</a>
+            <a href="omapizza.html">Tilaa nyt!</a>
+            <a href="#menu">Menu</a>
+            <form id="kirjauduulos_form">
+                <input id="kirjauduulos_btn" type="button" value="Kirjaudu ulos" onClick="kirjauduUlos()" />
+            </form>
+            <a id="userName"></a>
+        </div>
         <h1 style="text-align:center">Tuff pizza</h1>
         <h4>Tervetuloa Tuff pizzeriaan</h4>
     <nav>
@@ -32,7 +42,7 @@
             <li><a href="omapizza.html"  id="navigaatio">Tilaa nyt!</a></li>
         </ul>
     </nav>
-    <div id="userName"></div>
+
 
     <form id="rekisterointi_lomake">
         <input id="nimi" type="text" placeholder="Syötä nimesi" value="" />
@@ -43,9 +53,6 @@
         <input id="nimi2" type="text" placeholder="Syötä nimesi" value="" />
         <input id="salasana2" type="password" placeholder="Syötä salasanasi" value="" />
         <input id="kirjaudu_nappi" type="button" value="Kirjaudu" onClick="kirjaudu()" />
-    </form>
-    <form id="kirjauduulos_form">
-        <input id="kirjauduulos_btn" type="button" value="Kirjaudu ulos" onClick="kirjauduUlos()" />
     </form>
     </header>
     <section id="etusivu">
