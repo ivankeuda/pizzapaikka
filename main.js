@@ -8,34 +8,59 @@ const pizzaHinnat = {
 };
 
 const kokoKerroin = {
-    "medium": 0.80,
-    "large":  1.00,
+    "medium":   0.80,
+    "large":    1.00,
     "normaali": 1.00,
 };
 
 const lisukehinta = {
-    "kinkku": 1.00,
+    "kinkku":    1.00,
     "pepperoni": 1.00,
-    "cheese": 0.50,
+    "cheese":    0.50,
 };
 
 document.addEventListener("DOMContentLoaded", onkoRekisteroitunut);
 
-function rekisteroidy(){
+function openForm() {
+    document.getElementById('modalNakyma').classList.add('open');
+}
+
+function closeForm() {
+    document.getElementById('modalNakyma').classList.remove('open');
+}
+
+function overlayClick(e) {
+    if (e.target === document.getElementById('modalNakyma')) closeForm();
+}
+
+function switchTab(tab) {
+    const isKirjaudu = tab === 'kirjaudu';
+    document.getElementById('kirjautumis_lomake').classList.toggle('active', isKirjaudu);
+    document.getElementById('rekisterointi_lomake').classList.toggle('active', !isKirjaudu);
+    document.getElementById('tab-kirjaudu').classList.toggle('active', isKirjaudu);
+    document.getElementById('tab-rekisteroidy').classList.toggle('active', !isKirjaudu);
+}
+
+function rekisteroidy() {
     const nimi = document.getElementById("nimi").value.trim();
     const salasana = document.getElementById("salasana").value;
+
     if (!nimi || !salasana) {
         alert("Nimi ja salasana eivät voi olla tyhjiä.");
         return;
     }
+
     localStorage.setItem("nimi", nimi);
     localStorage.setItem("salasana", salasana);
     localStorage.setItem("rekisteroitunut", "kylla");
     localStorage.setItem("kirjautunut", "ei");
+
+    alert("Rekisteröityminen onnistui! Voit nyt kirjautua sisään.");
+    switchTab('kirjaudu');
     onkoRekisteroitunut();
 }
 
-function kirjaudu(){
+function kirjaudu() {
     const nimi = document.getElementById("nimi2").value;
     const salasana = document.getElementById("salasana2").value;
     const tallennettuNimi = localStorage.getItem("nimi");
@@ -43,34 +68,39 @@ function kirjaudu(){
 
     if (nimi === tallennettuNimi && salasana === tallennettuSalasana) {
         localStorage.setItem("kirjautunut", "kylla");
-        alert("Kirjautuminen onnistui " + tallennettuNimi + "!");
+        alert("Kirjautuminen onnistui, " + tallennettuNimi + "!");
+        closeForm();
     } else {
         alert("Virheellinen nimi tai salasana.");
     }
+
     onkoRekisteroitunut();
 }
 
-function onkoRekisteroitunut(){
+function onkoRekisteroitunut() {
     const rekisteroitunut = localStorage.getItem("rekisteroitunut") === "kylla";
-    const kirjautunut = localStorage.getItem("kirjautunut") === "kylla";
+    const kirjautunut     = localStorage.getItem("kirjautunut")     === "kylla";
 
-    document.getElementById("rekisterointi_lomake").style.display = rekisteroitunut ? "none" : "block";
-    document.getElementById("kirjautumis_lomake").style.display = rekisteroitunut && !kirjautunut ? "block" : "none";
-    document.getElementById("kirjauduulos_form").style.display = kirjautunut ? "block" : "none";
-    document.getElementById("authcontain").style.display = kirjautunut ? "none" : "block";
+    const openBtn = document.querySelector(".open-button");
+    if (openBtn) openBtn.style.display = kirjautunut ? "none" : "inline-block";
 
-    const kayttajaNimiElementti = document.getElementById('userName');
-    if (kirjautunut) {
-        kayttajaNimiElementti.textContent = localStorage.getItem("nimi") || '';
-    } else {
-        kayttajaNimiElementti.textContent = '';
+    const ulosForm = document.getElementById("kirjauduulos_form");
+    if (ulosForm) ulosForm.style.display = kirjautunut ? "block" : "none";
+
+    const kayttajaNimi = document.getElementById("userName");
+    if (kayttajaNimi) {
+        kayttajaNimi.textContent = kirjautunut ? (localStorage.getItem("nimi") || "") : "";
     }
+
+    if (rekisteroitunut) switchTab('kirjaudu');
 }
 
-function kirjauduUlos(){
+function kirjauduUlos() {
     localStorage.setItem("kirjautunut", "ei");
     onkoRekisteroitunut();
 }
+
+// ostoskori
 
 function paivitaOstoskori(ostoskori) {
     let teksti = "<h2>Ostoskori</h2>";
@@ -98,7 +128,7 @@ function paivitaOstoskori(ostoskori) {
 }
 
 function ostoskori() {
-    const kirjautunut = localStorage.getItem("kirjautunut") === "kylla";
+    const kirjautunut    = localStorage.getItem("kirjautunut")    === "kylla";
     const rekisteroitunut = localStorage.getItem("rekisteroitunut") === "kylla";
 
     if (!kirjautunut) {
@@ -107,23 +137,22 @@ function ostoskori() {
     }
 
     const kokoElementti = document.querySelector('input[name="KOKO"]:checked');
-    const koko = kokoElementti ? kokoElementti.value : "ei valittu";
-
-    const pohja = document.getElementById("POHJA").value;
-    const kastike = document.getElementById("KASTIKE").value;
-    const kinkku = document.getElementById("kinkku");
+    const koko     = kokoElementti ? kokoElementti.value : "ei valittu";
+    const pohja    = document.getElementById("POHJA").value;
+    const kastike  = document.getElementById("KASTIKE").value;
+    const kinkku   = document.getElementById("kinkku");
     const pepperoni = document.getElementById("pepperoni");
-    const juusto = document.getElementById("cheese");
+    const juusto   = document.getElementById("cheese");
 
     const ostoskoriLista = JSON.parse(localStorage.getItem("ostoskori") || "[]");
 
     ostoskoriLista.push({
-        koko: koko,
-        pohja: pohja,
-        kastike: kastike,
-        kinkku: kinkku.checked,
+        koko:      koko,
+        pohja:     pohja,
+        kastike:   kastike,
+        kinkku:    kinkku.checked,
         pepperoni: pepperoni.checked,
-        juusto: juusto.checked
+        juusto:    juusto.checked
     });
 
     localStorage.setItem("ostoskori", JSON.stringify(ostoskoriLista));
@@ -136,7 +165,7 @@ function tyhjenna() {
 }
 
 function valmiskori() {
-    const kirjautunut = localStorage.getItem("kirjautunut") === "kylla";
+    const kirjautunut     = localStorage.getItem("kirjautunut")     === "kylla";
     const rekisteroitunut = localStorage.getItem("rekisteroitunut") === "kylla";
 
     if (!kirjautunut) {
@@ -159,29 +188,31 @@ function valmiskori() {
     if (!resepti) return;
 
     const ostoskoriLista = JSON.parse(localStorage.getItem("ostoskori") || "[]");
-    
+
     ostoskoriLista.push({
-        nimi: valittuPizza,
-        koko: "normaali",
-        pohja: resepti.pohja,
-        kastike: resepti.kastike,
-        kinkku: resepti.kinkku,
+        nimi:      valittuPizza,
+        koko:      "normaali",
+        pohja:     resepti.pohja,
+        kastike:   resepti.kastike,
+        kinkku:    resepti.kinkku,
         pepperoni: resepti.pepperoni,
-        juusto: resepti.juusto
+        juusto:    resepti.juusto
     });
 
     localStorage.setItem("ostoskori", JSON.stringify(ostoskoriLista));
     paivitaOstoskori(ostoskoriLista);
 }
 
+// tilaus
+
 function tilausilmotus() {
-    const etunimi = document.getElementById("etunimi").value.trim();
-    const sukunimi = document.getElementById("sukunimi").value.trim();
+    const etunimi       = document.getElementById("etunimi").value.trim();
+    const sukunimi      = document.getElementById("sukunimi").value.trim();
     const puhelinnumero = document.getElementById("puhelinnumero").value.trim();
-    const osoite = document.getElementById("osoite") ? document.getElementById("osoite").value.trim() : "";
-    const postinumero = document.getElementById("postinumero").value.trim();
-    const kaupunki = document.getElementById("kaupunki").value.trim();
-    const kuljetustapa = document.getElementById("kuljetustausta").value;
+    const osoite        = document.getElementById("osoite") ? document.getElementById("osoite").value.trim() : "";
+    const postinumero   = document.getElementById("postinumero").value.trim();
+    const kaupunki      = document.getElementById("kaupunki").value.trim();
+    const kuljetustapa  = document.getElementById("kuljetustausta").value;
 
     if (!etunimi || !sukunimi || !puhelinnumero || !postinumero || !kaupunki) {
         alert("Täytä kaikki pakolliset kentät ennen tilauksen lähettämistä.");
@@ -193,7 +224,7 @@ function tilausilmotus() {
         return;
     }
 
-    const kirjautunut = localStorage.getItem("kirjautunut") === "kylla";
+    const kirjautunut     = localStorage.getItem("kirjautunut")     === "kylla";
     const rekisteroitunut = localStorage.getItem("rekisteroitunut") === "kylla";
 
     if (!kirjautunut) {
@@ -201,7 +232,7 @@ function tilausilmotus() {
         return;
     }
 
-    alert("Onneksi olkoon tilasit pizzan!");
+    alert("Onneksi olkoon, tilasit pizzan!");
     localStorage.removeItem("ostoskori");
     location.reload();
 }
@@ -220,9 +251,9 @@ function toimitusaika() {
         return;
     }
 
-    const minuutit = ostoskoriLista.length * 15;
-    const tunnit = Math.floor(minuutit / 60);
-    const jaljellaminuutit = minuutit % 60;
+    const minuutit          = ostoskoriLista.length * 15;
+    const tunnit            = Math.floor(minuutit / 60);
+    const jaljellaminuutit  = minuutit % 60;
 
     let aika = "";
     if (tunnit > 0) aika += `${tunnit}t `;
