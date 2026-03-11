@@ -34,24 +34,21 @@
 <h3>Haluamme tietää mitä mieltä olet meidän sivustostamme.</h3>
 <form id="tähdet" required>
     <p>Arvioi tyytyväisyyttäsi viiden tähden asteikolla.</p>
-    <input type="checkbox" id="tähti1" name="tähti1" value="1">
-    <label for="tähti1">1 Tähti⭐</label><br>
-    <input type="checkbox" id="tähti2" name="tähti2" value="2">
-    <label for="tähti2">2 Tähteä⭐</label><br>
-    <input type="checkbox" id="tähti3" name="tähti3" value="3">
-    <label for="tähti3">3 Tähteä⭐</label><br>
-    <input type="checkbox" id="tähti4" name="tähti4" value="4">
-    <label for="tähti4">4 Tähteä⭐</label><br>
-    <input type="checkbox" id="tähti5" name="tähti5" value="5">
-    <label for="tähti5">5 Tähteä⭐</label><br><br>
+    <select>
+        <option>1 tähteä⭐</option>
+        <option>2 tähteä⭐</option>
+        <option>3 tähteä⭐</option>
+        <option>4 tähteä⭐</option>
+        <option>5 tähteä⭐</option>
+    </select>
 </form>
 <form id="teksti">
     <label for="kenttä">Haluatko antaa lisää palautetta?</label><br>
-    <input type="text" id="kenttä" name="kenttä" value="Esim. Tosi tuff pizza"><br><br>
+    <input type="text" id="kenttä" name="kenttä" placeholder="Esim. Tosi tuff pizza"><br><br>
 </form>
 <form id="sähköposti">
     <label for="email">Sähköpostiosoite:</label><br>
-    <input type="email" id="email" name="email" value="Sähköpostisi" required><br><br>
+    <input type="email" id="email" name="email" placeholder="Sähköpostisi" required><br><br>
 </form>
 <form action="/submit/form" method="post" id="button">
 
