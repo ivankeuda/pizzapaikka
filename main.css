@@ -15,23 +15,23 @@ img{
     top: 20px;
 }
 body {background-color: #f7eede}
-h1 {font-family:Georgia; color: #e6bb48; background-color: peru}
+h1 {font-family:Georgia; color: #f7eede; background-color: #b5451b}
 h2 {font-family:Georgia; color: #b5451b}
 h3 {font-family:Georgia; color: #b5451b}
-h4 {font-family:Georgia; color: #e6bb48}
+h4 {font-family:Georgia; color: #f7eede}
 p {font-family:Georgia; color: #b5451b}
 li {font-family: Georgia; color: #b5451b}
 a:link{
-    color: #fcba06;
+    color: #d38117;
 }
 a:hover{
     color: #b5451b
 }
 a:visited{
-    color: #d38117 
+    color: #b5451b
 }
 header{
-    background-color:peru;
+    background-color:#b5451b;
     padding: 30px;
     text-align: center;
 }  
@@ -39,7 +39,7 @@ nav ul{
     float: center;
     text-align: center;
     padding: 5px;
-    background-color: peru;
+    background-color: #b5451b;
 }  
 ul{
     list-style-type: none
@@ -67,7 +67,7 @@ title{
     overflow: hidden;
     display: inline;
     padding: 3px;
-    background-color: #e6bb48;
+    background-color: #f7eede;
 }
 #valikko li{
     float: center;
@@ -111,11 +111,11 @@ title{
 }
 #kenttä{
     width:220px;
-    color: #e6bb48;
+    color: #d38117;
 }
 #email{
     width:220px;
-    color: #e6bb48;
+    color: #d38117;
 }
 #teksti{
     color:#b5451b;
