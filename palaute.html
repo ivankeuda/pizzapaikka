@@ -5,23 +5,23 @@
         <title>Tuff palaute</title>
         <style>
             #title {
-        font-size: 4rem;
-        color: transparent;
-        -webkit-text-stroke: 1px white;
-        text-shadow: -4px -4px  white;
-        font-weight: 600;
-        text-transform: uppercase;
-        }
+                font-size: 4rem;
+                color: transparent;
+                -webkit-text-stroke: 1px white;
+                text-shadow: -4px -4px white;
+                font-weight: 600;
+                text-transform: uppercase;
+            }
         </style>
     </head>
     <body>
         <header>
-            <div class ="logo">
+            <div class="logo">
                 <a href="#logo"><img src="Paras (3).png"></a>
             </div>
             <div class="topnav">
                 <a class="active" href="index.html">Etusivu</a>
-                <a href=" index.html #meistä">Meistä</a>
+                <a href="index.html#meistä">Meistä</a>
                 <a href="omapizza.html">Tilaa nyt!</a>
                 <a href="palaute.html">Arvostele meidät</a>
                 <a href="menu.html">Menu</a>
@@ -29,30 +29,57 @@
             <h1 id="title" style="text-align:center">🍕Tuff pizza🍕</h1>
             <h4>Tuff palaute</h4>
         </header>
-<h1 id="pala">Me halaumme palautettasi!</h1>
-<br>
-<h3>Haluamme tietää mitä mieltä olet meidän sivustostamme.</h3>
-<form id="tähdet" required>
-    <p>Arvioi tyytyväisyyttäsi viiden tähden asteikolla.</p>
-    <select>
-        <option>1 tähteä⭐</option>
-        <option>2 tähteä⭐</option>
-        <option>3 tähteä⭐</option>
-        <option>4 tähteä⭐</option>
-        <option>5 tähteä⭐</option>
-    </select>
-</form>
-<form id="teksti">
-    <label for="kenttä">Haluatko antaa lisää palautetta?</label><br>
-    <input type="text" id="kenttä" name="kenttä" placeholder="Esim. Tosi tuff pizza"><br><br>
-</form>
-<form id="sähköposti">
-    <label for="email">Sähköpostiosoite:</label><br>
-    <input type="email" id="email" name="email" placeholder="Sähköpostisi" required><br><br>
-</form>
-<form action="/submit/form" method="post" id="button">
 
-    <button type="submit" id="nappi">Lähetä</button>
-</form>
+        <h1 id="pala">Me haluamme palautettasi!</h1>
+        <br>
+        <h3>Haluamme tietää mitä mieltä olet meidän sivustostamme.</h3>
+
+        <form id="palautelomake" method="post">
+            <p>Arvioi tyytyväisyyttäsi viiden tähden asteikolla.</p>
+            <select name="tahdet" required>
+                <option value="">Valitse arvosana</option>
+                <option value="1">1 tähteä⭐</option>
+                <option value="2">2 tähteä⭐</option>
+                <option value="3">3 tähteä⭐</option>
+                <option value="4">4 tähteä⭐</option>
+                <option value="5">5 tähteä⭐</option>
+            </select>
+
+            <br><br>
+
+            <label for="kentta">Haluatko antaa lisää palautetta?</label><br>
+            <input type="text" id="kentta" name="kentta" placeholder="Esim. Tosi tuff pizza"><br><br>
+
+            <label for="email">Sähköpostiosoite:</label><br>
+            <input type="email" id="email" name="email" placeholder="Sähköpostisi" required><br><br>
+
+            <button type="submit" id="nappi">Lähetä</button>
+        </form>
+        <script>
+            const validateEmail = (email) => {
+                const atSymbol = email.indexOf('@');
+                const dot = email.lastIndexOf('.');
+                return atSymbol > 0 && dot > atSymbol;
+            };
+        
+            document.getElementById("palautelomake").addEventListener("submit", function(e) {
+                e.preventDefault();
+        
+                const tahdet = document.querySelector("select[name='tahdet']").value;
+                const kentta = document.getElementById("kentta").value;
+                const email  = document.getElementById("email").value;
+        
+                if (!tahdet) {
+                    alert("Valitse arvosana tähdillä!");
+                    return;
+                }
+                if (!email || !validateEmail(email)) {
+                    alert("Syötä kelvollinen sähköpostiosoite!");
+                    return;
+                }
+        
+                alert(`Kiitos palautteestasi! Annoit ${tahdet} tähteä.`);
+            });
+        </script>
     </body>
 </html>

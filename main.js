@@ -164,39 +164,33 @@ function tyhjenna() {
     location.reload();
 }
 
-function valmiskori() {
-    const kirjautunut     = localStorage.getItem("kirjautunut")     === "kylla";
-    const rekisteroitunut = localStorage.getItem("rekisteroitunut") === "kylla";
+const pizzaReseptit = {
+    "Pepperoni pizza":  { pohja: "normaali pizzapohja", kastike: "tomaattikastike",         kinkku: false, pepperoni: true,  juusto: true  },
+    "Kebab pizza":      { pohja: "normaali pizzapohja", kastike: "Chilimajoneesi",           kinkku: false, pepperoni: false, juusto: true  },
+    "Mozzarella pizza": { pohja: "normaali pizzapohja", kastike: "Secret valkoinen kastike", kinkku: false, pepperoni: false, juusto: true  },
+    "Kana pizza":       { pohja: "normaali pizzapohja", kastike: "Cheesekastike",            kinkku: false, pepperoni: false, juusto: true  },
+    "Jauheliha pizza":  { pohja: "normaali pizzapohja", kastike: "BBQ kastike",              kinkku: false, pepperoni: false, juusto: false },
+    "Tuff pizza":       { pohja: "normaali pizzapohja", kastike: "TUFF kastike",             kinkku: true,  pepperoni: true,  juusto: true  },
+};
 
-    if (!kirjautunut) {
-        alert(!rekisteroitunut ? "Rekisteröidy ja kirjaudu jatkaaksesi" : "Kirjaudu sisään jatkaaksesi");
+function valmiskori(koko = "normaali") {
+    if (localStorage.getItem("kirjautunut") !== "kylla") {
+        alert("Kirjaudu sisään jatkaaksesi");
         return;
     }
 
     const valittuPizza = document.getElementById("valmiitpizzat").value;
-
-    const pizzaReseptit = {
-        "Pepperoni pizza":  { pohja: "normaali pizzapohja", kastike: "tomaattikastike",         kinkku: false, pepperoni: true,  juusto: true  },
-        "Kebab pizza":      { pohja: "normaali pizzapohja", kastike: "Chilimajoneesi",           kinkku: false, pepperoni: false, juusto: true  },
-        "Mozzarella pizza": { pohja: "normaali pizzapohja", kastike: "Secret valkoinen kastike", kinkku: false, pepperoni: false, juusto: true  },
-        "Kana pizza":       { pohja: "normaali pizzapohja", kastike: "Cheesekastike",            kinkku: false, pepperoni: false, juusto: true  },
-        "Jauheliha pizza":  { pohja: "normaali pizzapohja", kastike: "BBQ kastike",              kinkku: false, pepperoni: false, juusto: false },
-        "Tuff pizza":       { pohja: "normaali pizzapohja", kastike: "TUFF kastike",             kinkku: true,  pepperoni: true,  juusto: true  },
-    };
-
     const resepti = pizzaReseptit[valittuPizza];
     if (!resepti) return;
 
-    const ostoskoriLista = JSON.parse(localStorage.getItem("ostoskori") || "[]");
+    const gluteeniton = document.getElementById("glutpohja").checked;
 
+    const ostoskoriLista = JSON.parse(localStorage.getItem("ostoskori") || "[]");
     ostoskoriLista.push({
-        nimi:      valittuPizza,
-        koko:      "normaali",
-        pohja:     resepti.pohja,
-        kastike:   resepti.kastike,
-        kinkku:    resepti.kinkku,
-        pepperoni: resepti.pepperoni,
-        juusto:    resepti.juusto
+        nimi:  valittuPizza,
+        koko,
+        ...resepti,
+        pohja: gluteeniton ? "gluteeniton pizzapohja +2€" : resepti.pohja,
     });
 
     localStorage.setItem("ostoskori", JSON.stringify(ostoskoriLista));
