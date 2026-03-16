@@ -125,7 +125,8 @@ function paivitaOstoskori(ostoskori) {
             let hinta = tuote.nimi ? (pizzaHinnat[tuote.nimi] || 0) : 10.00;
 
             if (tuote.pohja && tuote.pohja.includes("gluteeniton")) hinta += 2;
-            hinta *= (kokoKerroin[tuote.koko] || 1.00);
+            if (tuote.koko === "large") hinta += 1.50;
+            if (tuote.koko === "medium") hinta *= 1.00;
             yhteensa += hinta;
 
             teksti += `<h3>${tuote.nimi ? tuote.nimi : "Oma Pizza"} ${i + 1} — ${hinta.toFixed(2)}€</h3><ul>`;
@@ -135,7 +136,7 @@ function paivitaOstoskori(ostoskori) {
             if (tuote.kinkku)    teksti += "<li>Kinkku</li>";
             if (tuote.pepperoni) teksti += "<li>Pepperoni</li>";
             if (tuote.juusto)    teksti += "<li>Juusto</li>";
-            if (tuote.kala)    teksti += "<li>Kalanpyrstöt</li>";
+            if (tuote.kala)      teksti += "<li>Kalanpyrstöt</li>";
             teksti += "</ul>";
         }
     });
@@ -199,15 +200,18 @@ function valmiskori(koko = "normaali") {
     }
 
     const valittuPizza = document.getElementById("valmiitpizzat").value;
+    const suuri = document.getElementById("large2").checked;
+    const normi = document.getElementById("medium2").checked;
+    const gluteeniton = document.getElementById("glutpohja").checked;
     const resepti = pizzaReseptit[valittuPizza];
     if (!resepti) return;
 
-    const gluteeniton = document.getElementById("glutpohja").checked;
+    const valittuKoko = suuri ? "large" : normi ? "medium" : "normaali";
 
     const ostoskoriLista = JSON.parse(localStorage.getItem("ostoskori") || "[]");
     ostoskoriLista.push({
         nimi:  valittuPizza,
-        koko,
+        koko:  valittuKoko,
         ...resepti,
         pohja: gluteeniton ? "gluteeniton pizzapohja +2€" : resepti.pohja,
     });
