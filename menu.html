@@ -12,6 +12,24 @@
         font-weight: 600;
         text-transform: uppercase;
         }
+        header {
+            background-color: #b5451b;
+            text-align: center;
+            border-radius: 15px;
+            height: auto;
+            padding-bottom: 5px;
+        }
+        .menunimi { color: black; font-weight: bold; }
+        .taytteet  { color: #333; opacity: 90%; }
+        .hinta     { color: #333; }
+        .kuvake    { border-radius: 45px; }
+        .taustavideo {
+            position: fixed;
+            right: 0; bottom: 0;
+            min-width: 100%; min-height: 100%;
+            z-index: -1;
+            opacity: 5%;
+        }
     </style>
 </head>
 <body>
@@ -25,102 +43,80 @@
             <a href="omapizza.html">Tilaa nyt!</a>
             <a href="palaute.html">Arvostele meidät</a>
             <a href="menu.html">Menu</a>
+
         </div>
         <h1 id="title" style="text-align:center">🍕Tuff pizza🍕</h1>
         <h4>Tuff Menu</h4>
     </header>
-<section id="menu">
-<h1 id="suema">Tuff menu:</h1>
-<h2><u>Pizzat</u></h2>
-<ul id="menu">
-    <li id="pepperoni">
+
+<section id="etusivu">
+        <video src="pizzavideo.mp4" class="taustavideo" autoplay muted loop></video>
         <br>
-        <img src="pepperoni.jpg">
-        <h4>Pepperoni pizza</h4>
-        <p><i>juusto, pepperoni</i></p>
-        <p><strong>12.50€</strong></p>
-    </li>
-    <br>
-    <br>
-    <br>
-    <br>
-    <li id="kebab">
-        <br>
-        <img src="kebab.jpg">
-        <h4>Kebab pizza</h4>
-        <p><i>kebabliha, kebabkastike</i></p>
-        <p><strong>14.00€</strong></p>
-    </li>
-    <br>
-    <br>
-    <br>
-    <br>
-    <li id="mozzarella">
-        <br>
-        <img src="mozzarella.jpg">
-        <h4>Mozzarella pizza</h4>
-        <p><i>mozzarella, tomaatti, basilika</i></p>
-        <p><strong>13.50€</strong></p>
-    </li>
-    <br>
-    <br>
-    <br>
-    <br>
-    <li id="kana">
-        <br>
-        <img src="kana.jpg">
-        <h4>Kana pizza</h4>
-        <p><i>juusto, kana</i></p>
-        <p><strong>13.00€</strong></p>
-    </li>
-    <br>
-    <br>
-    <br>
-    <br>
-    <li id="liha">
-        <br>
-        <img src="liha.jpg">
-        <h4>Jauheliha pizza</h4>
-        <p><i>juusto, jauheliha</i></p>
-        <p><strong>12.50€</strong></p>
-    </li>
-    <br>
-    <br>
-    <br>
-    <br>
-    <li id="futa">
-        <br>
-        <img src="futa.jpg">
-        <h4>Tuff special</h4>
-        <p><i>mozzarella, futa pawjob kastike</i></p>
-        <p><strong>15.00€</strong></p>
-    </li>
-    </ul>
-    <br>
-    <br>
-    <br>
-    <br>
-    <h2><u>Lisukkeet</u></h2>
-    <ul>
-        <li><b>Mozzarellatikut</b> <small>(<b>4 kpl</b>)</small> - <b>3.50€</b></li>
-        <br>
-        <li><b>Kananugetit</b> <small>(<b>6 kpl</b>)</small> - <b>4.50€</b></li>
-        <br>
-        <li><b>Special Tuff salaatti</b> - <b>6.50€</b></li>
-    </ul>
-    <br>
-<h2><u>Juomat</u></h2>
-<ul>
-    <li><b>Vesi</b> - <b>1.50€</b></li>
-    <br>
-    <li><b>Pepsi Max</b> - <b>2.50€</b></li>
-    <br>
-    <li><b>Coca-cola</b> - <b>2.50€</b></li>
-    <br>
-    <li><b>Megaforce Solar Citrus</b> - <b>1.20€</b></li>
-    <br>
-    <li><b>Tarhun</b> - <b>2.00€</b></li>
-</ul>
 </section>
+<section id="menu">
+        <h2>Tuff menu</h2>
+
+        <h3><u>Pizzat</u></h3>
+        <ul>
+            <li>
+                <br>
+                <img src="pepperoni.jpg" class="kuvake">
+                <h4 class="menunimi">Pepperoni pizza</h4>
+                <p><i class="taytteet">juusto, pepperoni</i></p>
+                <p><strong class="hinta">12.50€</strong></p>
+            </li><br><br><br><br>
+            <li>
+                <br>
+                <img src="kebab.jpg" class="kuvake">
+                <h4 class="menunimi">Kebab pizza</h4>
+                <p><i class="taytteet">kebabliha, kebabkastike</i></p>
+                <p><strong class="hinta">14.00€</strong></p>
+            </li><br><br><br><br>
+            <li>
+                <br>
+                <img src="mozzarella.jpg" class="kuvake">
+                <h4 class="menunimi">Mozzarella pizza</h4>
+                <p><i class="taytteet">mozzarella, tomaatti, basilika</i></p>
+                <p><strong class="hinta">13.50€</strong></p>
+            </li><br><br><br><br>
+            <li>
+                <br>
+                <img src="kana.jpg" class="kuvake">
+                <h4 class="menunimi">Kana pizza</h4>
+                <p><i class="taytteet">juusto, kana</i></p>
+                <p><strong class="hinta">13.00€</strong></p>
+            </li><br><br><br><br>
+            <li>
+                <br>
+                <img src="liha.jpg" class="kuvake">
+                <h4 class="menunimi">Jauheliha pizza</h4>
+                <p><i class="taytteet">juusto, jauheliha</i></p>
+                <p><strong class="hinta">12.50€</strong></p>
+            </li><br><br><br><br>
+            <li>
+                <br>
+                <img src="futa.jpg" class="kuvake">
+                <h4 class="menunimi">Tuff special</h4>
+                <p><i class="taytteet">mozzarella, futa pawjob kastike</i></p>
+                <p><strong class="hinta">15.00€</strong></p>
+            </li><br><br><br><br>
+        </ul>
+
+        <h3><u>Lisukkeet</u></h3>
+        <ul>
+            <li><b>Mozzarellatikut</b> <small>(<b>4 kpl</b>)</small> - <b>3.50€</b></li>
+            <br>
+            <li><b>Kananugetit</b> <small>(<b>6 kpl</b>)</small> - <b>4.50€</b></li>
+            <br>
+            <li><b>Special Tuff salaatti</b> - <b>6.50€</b></li>
+        </ul>
+
+        <h3><u>Juomat</u></h3>
+        <ul>
+            <li><b>Vesi</b> - 1.50€</li><br>
+            <li><b>Pepsi Max</b> - 2.50€</li><br>
+            <li><b>Coca-cola</b> - 2.50€</li>
+        </ul>
+    </section>
 </body>
 </html>
