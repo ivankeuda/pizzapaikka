@@ -17,6 +17,7 @@ const lisukehinta = {
     "kinkku":    1.00,
     "pepperoni": 1.00,
     "cheese":    0.50,
+    "kalanpyrstöt": 1.50,
 };
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -134,6 +135,7 @@ function paivitaOstoskori(ostoskori) {
             if (tuote.kinkku)    teksti += "<li>Kinkku</li>";
             if (tuote.pepperoni) teksti += "<li>Pepperoni</li>";
             if (tuote.juusto)    teksti += "<li>Juusto</li>";
+            if (tuote.kala)    teksti += "<li>Kalanpyrstöt</li>";
             teksti += "</ul>";
         }
     });
@@ -158,6 +160,7 @@ function ostoskori() {
     const kinkku   = document.getElementById("kinkku");
     const pepperoni = document.getElementById("pepperoni");
     const juusto   = document.getElementById("cheese");
+    const kala   = document.getElementById("kalanpyrstöt");
 
     const ostoskoriLista = JSON.parse(localStorage.getItem("ostoskori") || "[]");
 
@@ -167,7 +170,8 @@ function ostoskori() {
         kastike:   kastike,
         kinkku:    kinkku.checked,
         pepperoni: pepperoni.checked,
-        juusto:    juusto.checked
+        juusto:    juusto.checked,
+        kala:       kala.checked,
     });
 
     localStorage.setItem("ostoskori", JSON.stringify(ostoskoriLista));
