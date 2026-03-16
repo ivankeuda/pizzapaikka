@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8" />
     <title>Fantasia</title>
-    <script type="text/javascript" language="javascript" src="main.js"></script>
     
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
@@ -217,6 +216,19 @@
             border: none;
         }
 
+        #valmistuotteet {
+            text-align: center;
+            border-radius: 12px;
+            border: 1.5px solid #c8a97a;
+            background-color: #fdf3e3;
+            margin-top: 15px;
+            padding: 10px;
+        }
+
+        #lisävalikko {
+            margin: 15px;
+        }
+
     </style>
 </head>
 <body>
@@ -288,6 +300,20 @@
                 </section>
             </section>
 
+            <section id="valmistuotteet">
+                <h2>Lisä tuotteet</h2>
+                <div id="lisävalikko">
+                    <select class="lisätuote" id="lisätuotteet">
+                        <option value="Vesi">Vesi - 1.50€</option>
+                        <option value="Pepsi Max">Pepsi Max - 2.50€</option>
+                        <option value="Coca-cola">Coca-cola - 2.50€</option>
+                    </select>
+                </div>
+                <section>
+                    <input type="button" id="ostoskorinappula3" name="Lisää ostoskoriin" value="Lisää ostoskoriin" onclick="lisakori()">
+                </section>
+            </section>
+
         </section>
         <section id="ostoskorinakyma">
             <h1 id="ostok">🛒 Ostoskori 🛒</h1>
@@ -299,6 +325,7 @@
         <section>
             <a href="index.html" id="takaisinnappula">← Takaisin</a>
         </section>
-    </div>    
+    </div>
+    <script type="text/javascript" src="main.js"></script>
 </body>
 </html>
