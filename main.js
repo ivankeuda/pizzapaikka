@@ -19,7 +19,11 @@ const lisukehinta = {
     "cheese":    0.50,
 };
 
-document.addEventListener("DOMContentLoaded", onkoRekisteroitunut);
+document.addEventListener("DOMContentLoaded", () => {
+    onkoRekisteroitunut();
+    const ostoskoriLista = JSON.parse(localStorage.getItem("ostoskori") || "[]");
+    if (ostoskoriLista.length > 0) paivitaOstoskori(ostoskoriLista);
+});
 
 function openForm() {
     document.getElementById('modalNakyma').classList.add('open');
@@ -35,10 +39,15 @@ function overlayClick(e) {
 
 function switchTab(tab) {
     const isKirjaudu = tab === 'kirjaudu';
-    document.getElementById('kirjautumis_lomake').classList.toggle('active', isKirjaudu);
-    document.getElementById('rekisterointi_lomake').classList.toggle('active', !isKirjaudu);
-    document.getElementById('tab-kirjaudu').classList.toggle('active', isKirjaudu);
-    document.getElementById('tab-rekisteroidy').classList.toggle('active', !isKirjaudu);
+    const kirjautumisLomake = document.getElementById('kirjautumis_lomake');
+    const rekisterointiLomake = document.getElementById('rekisterointi_lomake');
+    const tabKirjaudu = document.getElementById('tab-kirjaudu');
+    const tabRekisteroidy = document.getElementById('tab-rekisteroidy');
+
+    if (kirjautumisLomake) kirjautumisLomake.classList.toggle('active', isKirjaudu);
+    if (rekisterointiLomake) rekisterointiLomake.classList.toggle('active', !isKirjaudu);
+    if (tabKirjaudu) tabKirjaudu.classList.toggle('active', isKirjaudu);
+    if (tabRekisteroidy) tabRekisteroidy.classList.toggle('active', !isKirjaudu);
 }
 
 function rekisteroidy() {
@@ -106,21 +115,27 @@ function paivitaOstoskori(ostoskori) {
     let teksti = "<h2>Ostoskori</h2>";
     let yhteensa = 0;
 
-    ostoskori.forEach((pizza, i) => {
-        let hinta = pizza.nimi ? (pizzaHinnat[pizza.nimi] || 0) : 10.00;
+    ostoskori.forEach((tuote, i) => {
+        if (tuote.lisatuote) {
+            const hinta = tuote.hinta || 0;
+            yhteensa += hinta;
+            teksti += `<h3>${tuote.nimi} — ${hinta.toFixed(2)}€</h3>`;
+        } else {
+            let hinta = tuote.nimi ? (pizzaHinnat[tuote.nimi] || 0) : 10.00;
 
-        if (pizza.pohja && pizza.pohja.includes("gluteeniton")) hinta += 2;
-        hinta *= (kokoKerroin[pizza.koko] || 1.00);
-        yhteensa += hinta;
+            if (tuote.pohja && tuote.pohja.includes("gluteeniton")) hinta += 2;
+            hinta *= (kokoKerroin[tuote.koko] || 1.00);
+            yhteensa += hinta;
 
-        teksti += `<h3>${pizza.nimi ? pizza.nimi : "Oma Pizza"} ${i + 1} — ${hinta.toFixed(2)}€</h3><ul>`;
-        teksti += `<li>Koko: ${pizza.koko}</li>`;
-        teksti += `<li>Pohja: ${pizza.pohja}</li>`;
-        teksti += `<li>Kastike: ${pizza.kastike}</li>`;
-        if (pizza.kinkku)    teksti += "<li>Kinkku</li>";
-        if (pizza.pepperoni) teksti += "<li>Pepperoni</li>";
-        if (pizza.juusto)    teksti += "<li>Juusto</li>";
-        teksti += "</ul>";
+            teksti += `<h3>${tuote.nimi ? tuote.nimi : "Oma Pizza"} ${i + 1} — ${hinta.toFixed(2)}€</h3><ul>`;
+            teksti += `<li>Koko: ${tuote.koko}</li>`;
+            teksti += `<li>Pohja: ${tuote.pohja}</li>`;
+            teksti += `<li>Kastike: ${tuote.kastike}</li>`;
+            if (tuote.kinkku)    teksti += "<li>Kinkku</li>";
+            if (tuote.pepperoni) teksti += "<li>Pepperoni</li>";
+            if (tuote.juusto)    teksti += "<li>Juusto</li>";
+            teksti += "</ul>";
+        }
     });
 
     teksti += `<hr><strong>Yhteensä: ${yhteensa.toFixed(2)}€</strong>`;
@@ -191,6 +206,39 @@ function valmiskori(koko = "normaali") {
         koko,
         ...resepti,
         pohja: gluteeniton ? "gluteeniton pizzapohja +2€" : resepti.pohja,
+    });
+
+    localStorage.setItem("ostoskori", JSON.stringify(ostoskoriLista));
+    paivitaOstoskori(ostoskoriLista);
+}
+
+const lisatuoteHinnat = {
+    "Vesi": 1.50,
+    "Pepsi Max": 2.50,
+    "Coca-cola": 2.50,
+};
+
+function lisakori(koko = "normaali") {
+    const kirjautunut     = localStorage.getItem("kirjautunut")    === "kylla";
+    const rekisteroitunut = localStorage.getItem("rekisteroitunut") === "kylla";
+
+    if (!kirjautunut) {
+        alert(!rekisteroitunut ? "Rekisteröidy ja kirjaudu jatkaaksesi" : "Kirjaudu sisään jatkaaksesi");
+        return;
+    }
+
+    const lisatuote = document.getElementById("lisätuotteet").value;
+
+    if (!lisatuote) return;
+
+    const ostoskoriLista = JSON.parse(localStorage.getItem("ostoskori") || "[]");
+
+    ostoskoriLista.push({
+        nimi: lisatuote,
+        koko: "-",
+        pohja: "-",
+        hinta: lisatuoteHinnat[lisatuote] ?? 0,
+        lisatuote: true,
     });
 
     localStorage.setItem("ostoskori", JSON.stringify(ostoskoriLista));
