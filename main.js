@@ -263,9 +263,15 @@ function tilausilmotus() {
     const postinumero   = document.getElementById("postinumero").value.trim();
     const kaupunki      = document.getElementById("kaupunki").value.trim();
     const kuljetustapa  = document.getElementById("kuljetustausta").value;
+    const etaisyys      = document.getElementById("etaisyys").value
 
-    if (!etunimi || !sukunimi || !puhelinnumero || !postinumero || !kaupunki) {
+    if (!etunimi || !sukunimi || !puhelinnumero || !postinumero || !kaupunki || !etaisyys) {
         alert("Täytä kaikki pakolliset kentät ennen tilauksen lähettämistä.");
+        return;
+    }
+
+    if (etaisyys>20) {
+        alert("Pizzeriamme suorittaa vain alle 20km kuljetuksia.")
         return;
     }
 
@@ -301,13 +307,45 @@ function toimitusaika() {
         return;
     }
 
-    const minuutit          = ostoskoriLista.length * 15;
-    const tunnit            = Math.floor(minuutit / 60);
-    const jaljellaminuutit  = minuutit % 60;
+    const kuljetustapa = document.getElementById("kuljetustausta").value;
+    const etaisyys = parseFloat(document.getElementById("etaisyys")?.value) || 0;
 
-    let aika = "";
-    if (tunnit > 0) aika += `${tunnit}t `;
-    aika += `${jaljellaminuutit}min`;
+    if (kuljetustapa === "kuljetus") {
+        if (etaisyys > 20) {
+            nappi.value = "Toimitus ei onnistu yli 20 km päähän!";
+            return;
+        }
+    }
 
-    nappi.value = `Valmistusaika: ${aika}`;
+    let kokonaisMinuutit = 0;
+
+    ostoskoriLista.forEach(tuote => {
+        if (tuote.lisatuote) return;
+
+        const onGluteeniton = tuote.pohja && tuote.pohja.includes("gluteeniton");
+        const onValmis = !!tuote.nimi && pizzaReseptit[tuote.nimi];
+
+        let aika = onValmis ? 7 : 10;
+        if (onGluteeniton) aika += 3;
+
+        const tayteKentat = ["kinkku", "pepperoni", "juusto", "kala"];
+        tayteKentat.forEach(t => { if (tuote[t]) aika += 1; });
+
+        kokonaisMinuutit += aika;
+    });
+
+    if (kuljetustapa === "kuljetus") {
+        if (etaisyys < 3)       kokonaisMinuutit += 5;
+        else if (etaisyys <= 10) kokonaisMinuutit += 10;
+        else                    kokonaisMinuutit += 20;
+    }
+
+    const tunnit           = Math.floor(kokonaisMinuutit / 60);
+    const jaljellaminuutit = kokonaisMinuutit % 60;
+
+    let aikaStr = "";
+    if (tunnit > 0) aikaStr += `${tunnit}t `;
+    aikaStr += `${jaljellaminuutit}min`;
+
+    nappi.value = `Valmistusaika: ${aikaStr}`;
 }

@@ -153,16 +153,6 @@
         </div>
 
         <div class="lomake-rivi">
-            <label for="postinumero">Postinumero</label>
-            <input type="text" id="postinumero" placeholder="Esim. 00100" maxlength="5" />
-        </div>
-
-        <div class="lomake-rivi">
-            <label for="kaupunki">Kaupunki</label>
-            <input type="text" id="kaupunki" placeholder="Esim. Helsinki" />
-        </div>
-
-        <div class="lomake-rivi">
             <label for="kuljetustapa">Kuljetus tapa</label>
             <select id="kuljetustausta" onchange="piilotavalinta()">
                 <option value="nouto">Nouto</option>
@@ -173,12 +163,20 @@
         <div class="lomake-rivi" id="osoiterivi" style="display:none;">
             <label for="osoite">Katuosoite</label>
             <input type="text" id="osoite" placeholder="Esim. Esimerkkikatu 12 A 3" />
+            <label for="postinumero">Postinumero</label>
+            <input type="text" id="postinumero" placeholder="Esim. 00100" maxlength="5" />
+            <label for="kaupunki">Kaupunki</label>
+            <input type="text" id="kaupunki" placeholder="Esim. Helsinki" />
+            <label for="etaisyys">Matka</label>
+            <input type="number" id="etaisyys" placeholder="Esim. 3km" />
         </div>
 
         <div class="lomake-rivi">
-            <label for="lisatiedot">Lisätiedot kuljettajalle</label>
+            <label for="lisatiedot">Lisätiedot</label>
             <textarea id="lisatiedot" placeholder="Esim. 2. kerros, soita ovikelloa..."></textarea>
         </div>
+
+        <input type="button" id="aika" value="Arvioi valmistusaika" onclick="toimitusaika()">
 
         <input type="button" id="lahetanappula" value="✅ Lähetä tilaus" onclick="tilausilmotus()"/>
         <br />
