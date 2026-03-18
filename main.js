@@ -349,3 +349,24 @@ function toimitusaika() {
 
     nappi.value = `Valmistusaika: ${aikaStr}`;
 }
+const reviews = [
+    { name: "PidoRas67", stars: 5, text: "Tää on paras pizza mitä olen ikinä syönyt 😍" },
+    { name: "Matti M.", stars: 5, text: "Uskomaton maku, tulee varmasti uudestaan!" },
+    { name: "Liisa K.", stars: 4, text: "Nopea toimitus ja pizza oli vielä lämmin." },
+    { name: "Teemu R.", stars: 5, text: "Fantasia-vaihtoehto on loistava idea, rakastan sitä!" },
+    { name: "Pekka P.", stars: 4, text: "Hyvä hinta-laatu suhde, suosittelen." },
+    { name: "Pizzapoika.", stars: 5, text: "Tulipa nopeasti ja oli hyvää."}
+];
+
+window.addEventListener('DOMContentLoaded', () => {
+    const track = document.getElementById('reviewTrack');
+    if (!track) return;
+    const doubled = [...reviews, ...reviews];
+    track.innerHTML = doubled.map(r => `
+        <div class="review-card">
+            <p>${'⭐'.repeat(r.stars)}</p>
+            <p><i>"${r.text}"</i></p>
+            <p class="reviewer">— ${r.name}</p>
+        </div>
+    `).join('');
+});
